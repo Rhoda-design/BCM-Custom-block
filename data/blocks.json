@@ -1,0 +1,1150 @@
+{
+ "categories": [
+  {
+   "id": "animation",
+   "name": "Animation Blocks"
+  },
+  {
+   "id": "patterns",
+   "name": "Page Patterns"
+  },
+  {
+   "id": "case-study",
+   "name": "Case Study Blocks"
+  },
+  {
+   "id": "compendium",
+   "name": "The Compendium Blocks"
+  },
+  {
+   "id": "editorial",
+   "name": "Editorial Blocks"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "horizontal-scrolly",
+   "category": "animation",
+   "name": "Horizontal Scrolly",
+   "demo": "horizontal",
+   "cardDesc": "Turns scrolling into an animated story by sliding a strip of images sideways.",
+   "tagline": "A reusable WordPress component that turns normal scrolling into animated stories using images with text notes on top to explain what's going on as a user scrolls.",
+   "definition": "A reusable WordPress component that turns normal scrolling into animated stories using images with text notes on top of the images to explain what's going on as a user scrolls.",
+   "howItWorks": "You scroll down the page like normal, but instead of the image just disappearing off screen, it slides sideways. Text (a title and a short description) are rightfully positioned on the image parts to label what the user is looking at.",
+   "whatIsExpected": [
+    "You upload one or more images, and the block stitches them together into one long strip.",
+    "As you scroll down, the strip sticks to the screen instead of scrolling away.",
+    "While it's stuck, your scrolling slides the strip sideways.",
+    "Once you've scrolled through the whole strip, the page goes back to scrolling normally.",
+    "Text notes float above the image and appear as their part of the image comes into view."
+   ],
+   "whatShouldBeProvided": [
+    "Image parts that make up the long strip.",
+    "Add alt text for accessibility.",
+    "Text notes on each image (title, body, horizontal position, vertical position, width and styles)."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Insert the Horizontal Scrolly block from the block panel."
+    },
+    {
+     "title": "Upload & position image",
+     "detail": "Upload an image, add alt text and set position (left, right, center)."
+    },
+    {
+     "title": "Add text note",
+     "detail": "A title, body text, position, and style."
+    },
+    {
+     "title": "Repeat per image",
+     "detail": "Do this for every image that makes up the strip."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check how it looks, or go back and edit."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "A journey through a physical space — e.g. a market, a city.",
+    "A before and after that unfolds gradually.",
+    "Any sequence with a clear left to right order."
+   ],
+   "caution": "Skip it for stories with heavy body text — the format favors a handful of strong images over paragraphs.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "Jollof Road series",
+     "url": "https://www.zikoko.com/jollof-road"
+    },
+    {
+     "tag": "TechCabal",
+     "headline": "A Lagos car crash almost killed him. A €900 visa saved his dream of seeing the world.",
+     "url": "https://techcabal.com/2026/08/29/digital-nomads-adewale-adekomaiya/"
+    }
+   ],
+   "code": "<!-- wp:bcm/horizontal-scrolly {\"images\":[{\"id\":101,\"alt\":\"Market stalls at dawn\",\"position\":\"center\",\"note\":{\"title\":\"Stall 1\",\"body\":\"Where the day starts.\",\"x\":\"left\",\"y\":\"bottom\",\"width\":320}}]} /-->",
+   "codePretty": "{\n  \"images\": [\n    {\n      \"id\": 101,\n      \"alt\": \"Market stalls at dawn\",\n      \"position\": \"center\",\n      \"note\": {\n        \"title\": \"Stall 1\",\n        \"body\": \"Where the day starts.\",\n        \"x\": \"left\",\n        \"y\": \"bottom\",\n        \"width\": 320\n      }\n    }\n  ]\n}"
+  },
+  {
+   "id": "scroll-swap",
+   "category": "animation",
+   "name": "Scroll Swap",
+   "demo": "swap",
+   "cardDesc": "Turns scrolling into an animated story by scrolling one image up and out as the next slides in.",
+   "tagline": "A reusable WordPress component that turns normal scrolling into an animated story by scrolling images vertically as the reader scrolls, similar to normal page motion.",
+   "definition": "A reusable WordPress component that turns normal scrolling into an animated story by scrolling between images vertically as the reader scrolls, with text notes labelling each moment.",
+   "howItWorks": "You scroll down the page like normal, and the current image scrolls upward and out of view while the next image slides up to take its place — the same directional motion as normal page scrolling, just applied to the image itself. Text (a title and a short description) label each image as it appears.",
+   "whatIsExpected": [
+    "You upload two or more images, each becoming one step in the sequence.",
+    "As you scroll down, the frame sticks to the screen instead of scrolling away.",
+    "Further scrolling moves the current image upward and out of view, while the next image slides up to replace it.",
+    "Once you've scrolled through every image, the page goes back to scrolling normally.",
+    "Text notes appear over each image as it comes into view."
+   ],
+   "whatShouldBeProvided": [
+    "Image parts that make up the sequence.",
+    "Add alt text for accessibility.",
+    "Text notes on each image (title, body, position, and style)."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Insert the Scroll Swap block from the block panel."
+    },
+    {
+     "title": "Upload & position image",
+     "detail": "Upload an image, add alt text and set position (left, right, center)."
+    },
+    {
+     "title": "Add text note",
+     "detail": "A title, body text, position, and style."
+    },
+    {
+     "title": "Repeat per swap step",
+     "detail": "Do this for every image in the sequence."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check how it looks, or go back and edit."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Before-and-after comparisons.",
+    "A short series of distinct moments or stages.",
+    "Contrasting two or more scenes without needing a continuous strip."
+   ],
+   "caution": "Avoid it for content that needs images to overlap or blend — swaps replace one image with the next rather than merging them.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "#NairaLife: This 26-Year-Old Built a ₦7.9 Million Safety Net in 2 Years. How?",
+     "url": "https://www.zikoko.com/money/nairalife-26-year-old-banker-built-7-million-safety-net-in-2-years/"
+    },
+    {
+     "tag": "TechCabal",
+     "headline": "What ₦100,000 in Nigeria's biggest bank stocks became in 8 months",
+     "url": "https://techcabal.com/2026/08/28/what-100000-in-nigerias-biggest-bank-stocks-is-now-worth/"
+    }
+   ],
+   "code": "<!-- wp:bcm/scroll-swap {\"images\":[{\"id\":201,\"alt\":\"Lagos skyline\",\"position\":\"center\",\"note\":{\"title\":\"Morning\",\"body\":\"The city wakes up.\",\"align\":\"left\"}}]} /-->",
+   "codePretty": "{\n  \"images\": [\n    {\n      \"id\": 201,\n      \"alt\": \"Lagos skyline\",\n      \"position\": \"center\",\n      \"note\": {\n        \"title\": \"Morning\",\n        \"body\": \"The city wakes up.\",\n        \"align\": \"left\"\n      }\n    }\n  ]\n}"
+  },
+  {
+   "id": "ken-burns",
+   "category": "animation",
+   "name": "Ken Burns",
+   "demo": "kenburns",
+   "cardDesc": "Turns scrolling into an animated story by zooming out from a focal point to reveal the full image.",
+   "tagline": "A reusable WordPress component that turns normal scrolling into an animated story by starting zoomed in on a focal point and zooming out as the reader scrolls.",
+   "definition": "A reusable WordPress component that turns normal scrolling into an animated story by starting zoomed in on a chosen focal point and zooming out as the reader scrolls, revealing the full image, with text notes labelling what's being highlighted.",
+   "howItWorks": "You scroll down the page like normal, but instead of the image moving away, it starts zoomed in tight on a point you've chosen and slowly zooms out, revealing more of the image as you scroll. Text (a title and a short description) can label what's being highlighted as it zooms.",
+   "whatIsExpected": [
+    "You upload one or more images, each becoming one zoom step.",
+    "As you scroll down, the frame sticks to the screen instead of scrolling away.",
+    "The image starts zoomed in on its set focal point, and further scrolling zooms it out to reveal the full image.",
+    "Once you've scrolled through every zoom step, the page goes back to scrolling normally.",
+    "Text notes appear over each part as it comes into view."
+   ],
+   "whatShouldBeProvided": [
+    "Image parts that make up the zoom sequence.",
+    "Add alt text for accessibility.",
+    "An X/Y focal point and zoom size for each part.",
+    "Text notes on each image (title, body, position, and style)."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Insert the Ken Burns block from the block panel."
+    },
+    {
+     "title": "Upload & position image",
+     "detail": "Upload an image, add alt text and set position (left, right, center)."
+    },
+    {
+     "title": "Set zoom",
+     "detail": "Set the X/Y focal point and starting zoom-in level, which zooms out on scroll."
+    },
+    {
+     "title": "Add text note",
+     "detail": "A title, body text, position, and style."
+    },
+    {
+     "title": "Repeat per zoom part",
+     "detail": "Do this for every part in the sequence."
+    },
+    {
+     "title": "Preview & save",
+     "detail": "Check how it looks, then save the block."
+    }
+   ],
+   "whereToUse": [
+    "Maps where a specific location needs highlighting.",
+    "Documents or screenshots where one detail matters most.",
+    "Scenes where the real story lives in a small part of a larger image."
+   ],
+   "caution": "Avoid it for images without an obvious focal point — the zoom will feel arbitrary rather than purposeful.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "Ayodele Adio Has A Plan To Fix Lagos' Rent Problem",
+     "url": "https://www.zikoko.com/citizen/ayodele-adio-lagos-rent-problem-young-voices-to-follow/"
+    },
+    {
+     "tag": "TechCabal",
+     "headline": "Schneider Electric says Africa's electricity grid is the next AI battleground",
+     "url": "https://techcabal.com/2026/07/16/schneiders-ai-bet-starts-with-rebuilding-africas-electricity-grid/"
+    }
+   ],
+   "code": "<!-- wp:bcm/ken-burns {\"images\":[{\"id\":301,\"alt\":\"Map of Lagos\",\"focalX\":62,\"focalY\":40,\"zoom\":2.4,\"note\":{\"title\":\"Surulere\",\"body\":\"Where it all began.\",\"align\":\"right\"}}]} /-->",
+   "codePretty": "{\n  \"images\": [\n    {\n      \"id\": 301,\n      \"alt\": \"Map of Lagos\",\n      \"focalX\": 62,\n      \"focalY\": 40,\n      \"zoom\": 2.4,\n      \"note\": {\n        \"title\": \"Surulere\",\n        \"body\": \"Where it all began.\",\n        \"align\": \"right\"\n      }\n    }\n  ]\n}"
+  },
+  {
+   "id": "article-page",
+   "category": "patterns",
+   "name": "Article Page",
+   "demo": "article-page",
+   "cardDesc": "The standard layout for a single story: title, byline, hero image, body, and related stories.",
+   "tagline": "A reusable page template that lays out a single story consistently: title, author and date, a hero image, the article body, and related stories.",
+   "definition": "A reusable WordPress page template that lays out a single story consistently across the site: a title, author and date, a hero or feature image, the article body, and related stories at the end.",
+   "howItWorks": "When a writer publishes a story, WordPress renders it into this fixed structure automatically — the title and byline sit at the top, followed by a feature image, then the article body, and a set of related stories at the bottom to keep readers on the site.",
+   "whatIsExpected": [
+    "The title displays prominently at the top of the page.",
+    "The author's name and publish date appear directly beneath the title.",
+    "A hero or feature image sits above the article body, giving the story a strong visual anchor.",
+    "The article content flows below in the standard body layout.",
+    "A related stories section appears at the end, pulling in similar articles to keep readers engaged."
+   ],
+   "whatShouldBeProvided": [
+    "A title for the story.",
+    "A feature or hero image.",
+    "Author byline and publish date (usually automatic).",
+    "The article body content.",
+    "Tags or category assignment, so related stories surface correctly."
+   ],
+   "howToUse": [
+    {
+     "title": "Set title",
+     "detail": "Add the story's headline as the page title."
+    },
+    {
+     "title": "Set feature image",
+     "detail": "Upload the hero image for the top of the page."
+    },
+    {
+     "title": "Write body",
+     "detail": "Add the full article content."
+    },
+    {
+     "title": "Assign category",
+     "detail": "So related stories surface correctly."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check how the layout reads end-to-end."
+    },
+    {
+     "title": "Publish",
+     "detail": "Publish the story."
+    }
+   ],
+   "whereToUse": [
+    "Any standard news, feature, or interview story.",
+    "Long-form pieces that benefit from a strong hero image up top.",
+    "Any content meant to funnel readers into more site content via related stories."
+   ],
+   "caution": "This is the default template for most stories — reach for the Listing or Form pattern instead when the page isn't a single story.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "#NairaLife: This Designer Has Gone From $5 Gigs to Earning ₦3.2m/Month. But He Feels Poorer",
+     "url": "https://www.zikoko.com/money/nairalife-this-designer-earns-3m-monthly-but-still-feels-poor/"
+    },
+    {
+     "tag": "TechCabal",
+     "headline": "MTN controls 55% of Nigeria's fibre market, but the overall sector remains tiny",
+     "url": "https://techcabal.com/2026/09/14/mtn-controls-55-of-nigerias-tiny-fibre-market/"
+    }
+   ],
+   "code": "<!-- wp:bcm/article-page {\"template\":\"article\",\"heroImage\":401,\"category\":\"Money\",\"byline\":\"Author name\"} /-->",
+   "codePretty": "{\n  \"template\": \"article\",\n  \"heroImage\": 401,\n  \"category\": \"Money\",\n  \"byline\": \"Author name\"\n}"
+  },
+  {
+   "id": "listing-page",
+   "category": "patterns",
+   "name": "Listing Page",
+   "demo": "listing-page",
+   "cardDesc": "A scannable grid of story cards, grouped by category, for homepages and archives.",
+   "tagline": "A reusable page template that displays many stories at once as a scannable list or grid — used for homepages, category pages, and topic collections.",
+   "definition": "A reusable WordPress page template that displays multiple stories at once as a scannable list or grid, used for homepages, category pages, and topic collections.",
+   "howItWorks": "Instead of one story, this template pulls in many stories at once and displays each as a compact card: a thumbnail image, a category tag, a headline, the author, and the date. Cards are grouped by category, usually with a “see more” or “load more” link at the end of each section.",
+   "whatIsExpected": [
+    "Each story appears as a card with a thumbnail image, category tag, headline, author, and date.",
+    "Cards are grouped into sections by category or topic.",
+    "Each section ends with a “see more” or “load more” link to the full category page.",
+    "The newest stories typically appear first within each section."
+   ],
+   "whatShouldBeProvided": [
+    "A thumbnail image for each story.",
+    "A category or tag assignment for grouping.",
+    "Author and publish date (usually automatic).",
+    "A defined number of stories per section, and a link to the full category archive."
+   ],
+   "howToUse": [
+    {
+     "title": "Assign category",
+     "detail": "So each story lists in the right section."
+    },
+    {
+     "title": "Set thumbnail",
+     "detail": "Every story needs an image for the card to render."
+    },
+    {
+     "title": "Order sections",
+     "detail": "Decide which categories appear, and in what order."
+    },
+    {
+     "title": "Set “see more” links",
+     "detail": "Point each section to its full archive page."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the page across sections and card counts."
+    },
+    {
+     "title": "Publish",
+     "detail": "Publish the page."
+    }
+   ],
+   "whereToUse": [
+    "Homepages that need to surface many stories at once.",
+    "Category or topic archive pages.",
+    "Collection pages grouping stories around a theme."
+   ],
+   "caution": "Keep card copy (headline, tag) concise — this pattern is built for scanning quickly, not reading in place.",
+   "examples": [
+    {
+     "tag": "TechCabal",
+     "headline": "Homepage — sectioned by vertical (Startups, FinTech, Banking, Companies, Features, News, TC Insights)",
+     "url": "https://techcabal.com/"
+    },
+    {
+     "tag": "Zikoko",
+     "headline": "Homepage — latest content grid plus category archive links",
+     "url": "https://www.zikoko.com/"
+    }
+   ],
+   "code": "<!-- wp:bcm/listing-page {\"template\":\"listing\",\"groupBy\":\"category\",\"columns\":3} /-->",
+   "codePretty": "{\n  \"template\": \"listing\",\n  \"groupBy\": \"category\",\n  \"columns\": 3\n}"
+  },
+  {
+   "id": "full-width-hero",
+   "category": "patterns",
+   "name": "Full Width Hero Block",
+   "demo": "full-width-hero",
+   "cardDesc": "A hero image that spans 100% of the viewport width, edge to edge, for flagship feature stories.",
+   "tagline": "A page treatment where the hero or feature image stretches across 100% of the viewport width, rather than being boxed within the article's content column.",
+   "definition": "A page pattern where the story's hero image spans the full width of the browser viewport (100% width, edge to edge), rather than being constrained to the article's text column, giving flagship feature stories a more immersive opening.",
+   "howItWorks": "Instead of sitting inside the article's normal content width, the hero image breaks out to fill the entire browser window from edge to edge. The headline, byline, and category tag sit directly below the image before the article body returns to its normal contained width.",
+   "whatIsExpected": [
+    "The hero image loads first, above the headline, category tag, and byline.",
+    "The image stretches to fill the entire browser viewport width, with no side margins.",
+    "The headline, category tag, and byline sit directly below the image, back in the normal contained width.",
+    "The rest of the article body continues in the standard contained width."
+   ],
+   "whatShouldBeProvided": [
+    "A high-resolution hero image or GIF suited to a full-width, edge-to-edge crop.",
+    "The story's category tag, title, byline, and date, which render below the image.",
+    "The rest of the article content as normal."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at the very top of the article."
+    },
+    {
+     "title": "Upload hero image",
+     "detail": "Use a high-resolution image built for an edge-to-edge crop."
+    },
+    {
+     "title": "Add title & byline",
+     "detail": "These render below the full-width image."
+    },
+    {
+     "title": "Continue with body",
+     "detail": "Write the rest of the article as normal below the hero."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the image spans the full viewport on desktop and mobile."
+    },
+    {
+     "title": "Publish",
+     "detail": "Publish the story."
+    }
+   ],
+   "whereToUse": [
+    "High-impact feature stories or investigations that benefit from a strong visual opening.",
+    "Stories with a striking, wide-format image or GIF.",
+    "Not needed for standard news or shorter pieces — reserve it for flagship features."
+   ],
+   "caution": "A full-width hero is a visual statement — using it on every story dilutes its impact. Reserve it for genuine flagship features.",
+   "examples": [
+    {
+     "tag": "TechCabal",
+     "headline": "Inside the spam call machine behind Nigeria's digital lending boom",
+     "url": "https://techcabal.com/2026/04/29/inside-nigeria-spam-calls-problem/"
+    }
+   ],
+   "code": "<!-- wp:bcm/full-width-hero {\"image\":501,\"alt\":\"Wide shot of the story location\",\"title\":\"Story title\",\"category\":\"Features\",\"byline\":\"Author name\"} /-->",
+   "codePretty": "{\n  \"image\": 501,\n  \"alt\": \"Wide shot of the story location\",\n  \"title\": \"Story title\",\n  \"category\": \"Features\",\n  \"byline\": \"Author name\"\n}"
+  },
+  {
+   "id": "category-page-block",
+   "category": "patterns",
+   "name": "Page Category Block",
+   "demo": "category-page",
+   "cardDesc": "A collection page with one central story up top, and a numbered list of related stories below, each with a “Read Story” button.",
+   "tagline": "A collection-style page built around a central story, followed by a numbered list of related stories in the same series, each with its own “Read Story” call to action.",
+   "definition": "A page pattern used for collections or event coverage, combining one central, featured story at the top with a numbered list of every other related story in the series, each rendered as its own card with a headline, short description, and a “Read Story” button.",
+   "howItWorks": "The page opens with an introduction to the collection and a central, featured story. Below that, every other story in the series is listed in order, each as its own short card: a headline, a one- or two-line description, and a distinctly colored “Read Story” button linking out to the full piece.",
+   "whatIsExpected": [
+    "An introduction at the top explains what the collection is and its scope (e.g. an event, a themed series).",
+    "One central or featured story is highlighted prominently near the top.",
+    "Every other story in the collection is listed below, numbered in order.",
+    "Each story in the list shows a headline, a short description, and a “Read Story” button.",
+    "Clicking “Read Story” takes the reader to that story's full article page."
+   ],
+   "whatShouldBeProvided": [
+    "An introduction describing the collection.",
+    "The central or featured story to highlight.",
+    "A headline and short description for every other story in the series.",
+    "A link to each story's full article."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it for the collection's landing page."
+    },
+    {
+     "title": "Write intro",
+     "detail": "Introduce the collection and its scope."
+    },
+    {
+     "title": "Set featured story",
+     "detail": "Choose the central story to highlight."
+    },
+    {
+     "title": "Add story list",
+     "detail": "Add a headline, description, and link for each related story."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the numbered order and that every link works."
+    },
+    {
+     "title": "Publish",
+     "detail": "Publish the collection page."
+    }
+   ],
+   "whereToUse": [
+    "Event coverage with many related stories (e.g. a conference like Moonshot).",
+    "Themed series or year-end collections (e.g. predictions, retrospectives).",
+    "Any topic where readers benefit from browsing many related pieces from one hub page."
+   ],
+   "caution": "Keep each story's description short — this page is a hub for browsing, not a place to read full content.",
+   "examples": [
+    {
+     "tag": "TechCabal",
+     "headline": "Moonshot 2025 Memos — central story plus a numbered list of 26 related stories",
+     "url": "https://techcabal.com/collection/moonshot-2025-summary/"
+    },
+    {
+     "tag": "TechCabal",
+     "headline": "TechCabal's 2026 Predictions collection",
+     "url": "https://techcabal.com/collection/techcabals-2026-predictions/"
+    }
+   ],
+   "code": "<!-- wp:bcm/category-page-block {\"category\":\"money\",\"featured\":true,\"count\":5,\"buttonLabel\":\"Read story\"} /-->",
+   "codePretty": "{\n  \"category\": \"money\",\n  \"featured\": true,\n  \"count\": 5,\n  \"buttonLabel\": \"Read story\"\n}"
+  },
+  {
+   "id": "bcm-section",
+   "category": "case-study",
+   "name": "BCM Section",
+   "demo": "bcm-section",
+   "cardDesc": "An intro block with an eyebrow label, bold headline, and description — used to open a case study page.",
+   "tagline": "An intro block combining a small eyebrow label, a bold headline, and a short description paragraph, used to open a case study or platform overview.",
+   "definition": "A case study block that introduces a platform, event, or initiative with a small uppercase eyebrow label, a large bold headline, and a short description paragraph beneath it.",
+   "howItWorks": "The writer sets a short eyebrow label (like “THE PLATFORM”) above a bold, attention-grabbing headline, followed by a paragraph explaining the context in more detail.",
+   "whatIsExpected": [
+    "A small, muted eyebrow label appears above the headline (e.g. “THE PLATFORM”).",
+    "A large, bold headline follows, stating the key fact or claim.",
+    "A description paragraph beneath the headline adds context and detail."
+   ],
+   "whatShouldBeProvided": [
+    "The eyebrow label text.",
+    "The headline text.",
+    "The description paragraph."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at the top of the case study page."
+    },
+    {
+     "title": "Set eyebrow label",
+     "detail": "Add a short, uppercase label for context."
+    },
+    {
+     "title": "Write headline",
+     "detail": "State the key fact or claim in bold."
+    },
+    {
+     "title": "Add description",
+     "detail": "Add a short paragraph with more detail."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the hierarchy reads clearly."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Opening section of a case study or event recap page.",
+    "sponsorship pages published as a page.",
+    "Anywhere a platform or initiative needs a strong, clear introduction."
+   ],
+   "caution": "Keep the headline to one key claim — cramming multiple facts into it weakens the impact.",
+   "examples": [],
+   "code": "<!-- wp:bcm/bcm-section {\"eyebrow\":\"The challenge\",\"headline\":\"A bold headline\",\"description\":\"One or two lines of context.\"} /-->",
+   "codePretty": "{\n  \"eyebrow\": \"The challenge\",\n  \"headline\": \"A bold headline\",\n  \"description\": \"One or two lines of context.\"\n}"
+  },
+  {
+   "id": "stats-grid",
+   "category": "case-study",
+   "name": "Stats Grid",
+   "demo": "stats-grid",
+   "cardDesc": "A grid of bold numbers with short labels, summarising key results at a glance.",
+   "tagline": "A grid of bold statistics, each paired with a short label, used to summarise key results at a glance.",
+   "definition": "A case study block that displays a set of key figures as a grid, each cell showing one bold number and a short label beneath it, colored to visually separate each stat.",
+   "howItWorks": "Each cell in the grid shows one large number and a short label underneath, colored with a distinct pastel background so each stat stands out and the grid stays scannable.",
+   "whatIsExpected": [
+    "Each cell shows one large, bold number.",
+    "A short label appears beneath each number, explaining what it measures.",
+    "Cells are arranged in a grid, typically 3 columns, and can span multiple rows.",
+    "Each cell has a distinct background color to visually separate the stats."
+   ],
+   "whatShouldBeProvided": [
+    "The number or figure for each stat.",
+    "A short label for each stat.",
+    "A background color per cell."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add the Stats Grid block."
+    },
+    {
+     "title": "Add stats",
+     "detail": "Enter each number and its label."
+    },
+    {
+     "title": "Set colors",
+     "detail": "Assign a background color per cell."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the grid reads clearly at a glance."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Event or campaign recap pages, summarising reach and results.",
+    "sponsorship pages, showing impact figures to potential partners.",
+    "Any case study needing to communicate scale quickly."
+   ],
+   "caution": "Limit this to genuinely impressive or relevant figures — a grid full of unremarkable numbers dilutes the ones that matter.",
+   "examples": [],
+   "code": "<!-- wp:bcm/stats-grid {\"stats\":[{\"value\":\"3,000+\",\"label\":\"Attendees\"},{\"value\":\"45\",\"label\":\"Partners\"}]} /-->",
+   "codePretty": "{\n  \"stats\": [\n    {\n      \"value\": \"3,000+\",\n      \"label\": \"Attendees\"\n    },\n    {\n      \"value\": \"45\",\n      \"label\": \"Partners\"\n    }\n  ]\n}"
+  },
+  {
+   "id": "case-study-quote",
+   "category": "case-study",
+   "name": "Case Study Quote",
+   "demo": "case-quote",
+   "cardDesc": "A quote highlighted with a colored left border and light panel — distinct from the article Pull Quote.",
+   "tagline": "A quote or key insight set apart with a colored left border and a light background panel, distinct from the large-quotation-mark Pull Quote used in articles.",
+   "definition": "A case study block that highlights a key quote or insight using a colored left border and a light background panel, rather than the large quotation-mark styling used in article Pull Quotes.",
+   "howItWorks": "The writer places a short, important line of text into the block, which renders with a colored accent bar on the left and a light background, setting it apart from surrounding paragraphs without decorative quotation marks.",
+   "whatIsExpected": [
+    "A colored vertical bar appears on the left edge of the block.",
+    "The quote or insight text sits inside a light background panel.",
+    "The styling is simpler than the article Pull Quote — no large quotation mark."
+   ],
+   "whatShouldBeProvided": [
+    "The quote or insight text.",
+    "An accent color for the left border, usually matching the case study's branding."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add the Case Study Quote block."
+    },
+    {
+     "title": "Add text",
+     "detail": "Enter the quote or key insight."
+    },
+    {
+     "title": "Set accent color",
+     "detail": "Match the border color to the case study's branding."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check it stands out clearly from body text."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Highlighting a key business insight or opportunity in a case study or sponsorship page.",
+    "Summarising a takeaway between sections of a longer recap.",
+    "Distinct from the article Pull Quote — use this for case studies, Pull Quote for editorial stories."
+   ],
+   "caution": "Don't use this interchangeably with the article Pull Quote — keep the two visually distinct so readers can tell case study content from editorial content.",
+   "examples": [],
+   "code": "<!-- wp:bcm/case-study-quote {\"quote\":\"A short, quotable line.\",\"citation\":\"Name, role\"} /-->",
+   "codePretty": "{\n  \"quote\": \"A short, quotable line.\",\n  \"citation\": \"Name, role\"\n}"
+  },
+  {
+   "id": "image-rail",
+   "category": "case-study",
+   "name": "Image Rail / GIFs",
+   "demo": "image-rail",
+   "cardDesc": "A horizontally scrollable row of images or GIFs, with a caption above describing the moment.",
+   "tagline": "A horizontally scrollable gallery of images or GIFs, introduced by a short caption, used to showcase moments from an event or campaign.",
+   "definition": "A case study block that displays a horizontally scrollable row of images or GIFs, introduced by a short caption describing what's being shown.",
+   "howItWorks": "A short caption sets up the context (e.g. “Main Stage conversations and speaker-audience interaction”), followed by a row of images the reader can scroll through horizontally to see more.",
+   "whatIsExpected": [
+    "A short caption appears above the image row, describing the moment or theme.",
+    "Images or GIFs are arranged in a horizontal row, with more visible by scrolling sideways.",
+    "Images can be photos or GIFs, depending on the moment being shown."
+   ],
+   "whatShouldBeProvided": [
+    "The caption text.",
+    "The set of images or GIFs to include in the row."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add the Image Rail block."
+    },
+    {
+     "title": "Set caption",
+     "detail": "Write a short line describing the images."
+    },
+    {
+     "title": "Upload images",
+     "detail": "Add the photos or GIFs for the row."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the row scrolls smoothly and images look sharp."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Showcasing event photography or highlight reels in a case study.",
+    "Any moment better shown as multiple images than a single hero shot.",
+    "Campaign recaps needing to convey energy or scale visually."
+   ],
+   "caution": "Keep captions specific to what's shown — a vague caption undercuts the context the images need.",
+   "examples": [],
+   "code": "<!-- wp:bcm/image-rail {\"caption\":\"Main stage conversations\",\"images\":[601,602,603]} /-->",
+   "codePretty": "{\n  \"caption\": \"Main stage conversations\",\n  \"images\": [\n    601,\n    602,\n    603\n  ]\n}"
+  },
+  {
+   "id": "compendium-edition",
+   "category": "compendium",
+   "name": "Compendium Edition",
+   "demo": "compendium-edition",
+   "cardDesc": "A feature card introducing one edition of The Nigerian Life Compendium, with key insights and a Read essay button.",
+   "tagline": "A card that introduces a single edition of The Nigerian Life Compendium and sends readers to the full essay.",
+   "definition": "The Compendium Edition block presents one edition of The Nigerian Life Compendium as a feature card: a title, a short body, a set of key insights and a Read essay button.",
+   "howItWorks": "The block renders the edition title and a short intro, then lists the key insights as a scannable set. A Read essay button at the end links to the full essay.",
+   "whatIsExpected": [
+    "The title leads the card, followed by the body text.",
+    "Key insights appear as a short, scannable list so readers get the headline findings before clicking.",
+    "The Read essay button sits at the end of the card and opens the full essay."
+   ],
+   "whatShouldBeProvided": [
+    "Edition title.",
+    "Body text (a short introduction to the edition).",
+    "Key insights (a few short lines).",
+    "Link for the Read essay button."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Insert the Compendium Edition block from the block panel."
+    },
+    {
+     "title": "Add title and body",
+     "detail": "Type the edition title and a short introduction."
+    },
+    {
+     "title": "Add key insights",
+     "detail": "Add each insight as its own line. Keep each one short."
+    },
+    {
+     "title": "Set the Read essay link",
+     "detail": "Paste the URL of the full essay."
+    },
+    {
+     "title": "Preview and save",
+     "detail": "Check how the card reads, then save the block."
+    }
+   ],
+   "whereToUse": [
+    "The Nigerian Life Compendium landing page, one card per edition.",
+    "Anywhere an edition needs a short, clickable introduction."
+   ],
+   "caution": "Keep key insights short. If they run long, readers skip them and go straight to the button.",
+   "examples": [
+    {
+     "tag": "Compendium",
+     "headline": "The Nigerian Life Compendium",
+     "url": "https://thenigerianlifecompendium.com"
+    }
+   ],
+   "code": "<!-- wp:bcm/compendium-edition {\"title\":\"Edition title\",\"body\":\"Short introduction.\",\"keyInsights\":[\"Insight one\",\"Insight two\"],\"ctaLabel\":\"Read essay\",\"ctaUrl\":\"https://example.com/essay\"} /-->",
+   "codePretty": "{\n  \"title\": \"Edition title\",\n  \"body\": \"Short introduction.\",\n  \"keyInsights\": [\n    \"Insight one\",\n    \"Insight two\"\n  ],\n  \"ctaLabel\": \"Read essay\",\n  \"ctaUrl\": \"https://example.com/essay\"\n}"
+  },
+  {
+   "id": "compendium-downloads",
+   "category": "compendium",
+   "name": "Compendium Downloads and Notifications",
+   "demo": "compendium-downloads",
+   "cardDesc": "Offers a report download, or collects an email so readers get notified when the report is ready.",
+   "tagline": "A block that lets readers download a Compendium report, or sign up to be notified when it is released.",
+   "definition": "The Compendium Downloads and Notifications block shows a report with its title, description and a download button, plus an email field with a Notify me button for reports that are not ready yet.",
+   "howItWorks": "The block shows the report title and description with a labelled button that links to the file. For upcoming reports, an email field and a Notify me button let readers ask to be told when it is out.",
+   "whatIsExpected": [
+    "The report title and description appear together at the top of the block.",
+    "A label and button link to the report file.",
+    "An email input with a Notify me button appears for readers who want an alert."
+   ],
+   "whatShouldBeProvided": [
+    "Report title.",
+    "Description.",
+    "URL of the report file.",
+    "Label (for example, the file type or edition).",
+    "Button text."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Insert the Compendium Downloads and Notifications block."
+    },
+    {
+     "title": "Add report details",
+     "detail": "Add the report title and a short description."
+    },
+    {
+     "title": "Set the link",
+     "detail": "Paste the report URL and set the label and button text."
+    },
+    {
+     "title": "Check the notify field",
+     "detail": "Confirm the email field and Notify me button show as expected."
+    },
+    {
+     "title": "Preview and save",
+     "detail": "Preview the block, then save it."
+    }
+   ],
+   "whereToUse": [
+    "Compendium pages that offer a report for download.",
+    "Reports that are coming soon, where readers can ask to be told when they are live."
+   ],
+   "caution": "Confirm the file URL works before publishing. A broken download button costs trust fast.",
+   "examples": [],
+   "code": "<!-- wp:bcm/compendium-downloads {\"reportTitle\":\"Report title\",\"description\":\"Short description.\",\"url\":\"https://example.com/report.pdf\",\"label\":\"PDF\",\"buttonText\":\"Download\",\"notify\":true} /-->",
+   "codePretty": "{\n  \"reportTitle\": \"Report title\",\n  \"description\": \"Short description.\",\n  \"url\": \"https://example.com/report.pdf\",\n  \"label\": \"PDF\",\n  \"buttonText\": \"Download\",\n  \"notify\": true\n}"
+  },
+  {
+   "id": "newsletter-promo",
+   "category": "editorial",
+   "name": "Newsletter Promo Card",
+   "demo": "newsletter-promo",
+   "cardDesc": "A branded graphic promoting a specific newsletter, with a subscribe link beneath it.",
+   "tagline": "A branded promo card that highlights one of Zikoko's newsletters mid-article, with a direct subscribe link underneath.",
+   "definition": "A branded graphic card that promotes a specific newsletter franchise (like Naira Life) within an article, paired with a short subscribe link beneath the image.",
+   "howItWorks": "The writer places a styled promotional image for the relevant newsletter at a natural break in the article, followed by a plain text link inviting the reader to subscribe.",
+   "whatIsExpected": [
+    "A branded image appears showing the newsletter's name, tagline, and delivery schedule.",
+    "A short text link sits directly beneath the image, inviting the reader to subscribe.",
+    "Clicking the link takes the reader to the newsletter signup form."
+   ],
+   "whatShouldBeProvided": [
+    "The branded promo image for the specific newsletter.",
+    "The subscribe link URL.",
+    "Short link text (e.g. “Subscribe to the newsletter here”)."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at a natural break in the article."
+    },
+    {
+     "title": "Choose newsletter",
+     "detail": "Select which newsletter's promo image to show."
+    },
+    {
+     "title": "Set link",
+     "detail": "Add the subscribe URL and link text."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check placement and that the link works."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Articles that relate to a specific newsletter's subject (e.g. a money story linking to Naira Life).",
+    "Natural breaks in long-form content, rather than the very start or end.",
+    "Anywhere cross-promotion between content and newsletter signups makes sense."
+   ],
+   "caution": "Match the newsletter to the article's topic — a mismatched promo feels like an ad, not a recommendation.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "Naira Life newsletter promo — “Financial Stories you'll actually understand. No jargon.”",
+     "url": "https://www.zikoko.com/money/nairalife-this-designer-earns-3m-monthly-but-still-feels-poor/"
+    }
+   ],
+   "code": "<!-- wp:bcm/newsletter-promo {\"image\":701,\"alt\":\"Newsletter graphic\",\"linkText\":\"Subscribe\",\"url\":\"https://example.com/newsletter\"} /-->",
+   "codePretty": "{\n  \"image\": 701,\n  \"alt\": \"Newsletter graphic\",\n  \"linkText\": \"Subscribe\",\n  \"url\": \"https://example.com/newsletter\"\n}"
+  },
+  {
+   "id": "story-submission-cta",
+   "category": "editorial",
+   "name": "Story Submission CTA",
+   "demo": "submission-cta",
+   "cardDesc": "A pill-shaped button inviting readers to submit their own story for a franchise.",
+   "tagline": "A call-to-action button inviting readers to become a future subject of a franchise like Naira Life.",
+   "definition": "A rounded button callout, placed at the end of an interview-style article, inviting the reader to submit their own story for a future feature.",
+   "howItWorks": "After the interview content ends, a short line introduces the invitation, followed by a large, colored pill button with a direct call to action.",
+   "whatIsExpected": [
+    "A short line of text sets up the invitation (e.g. “If you're interested in talking about your story...”).",
+    "A large, rounded button follows, styled distinctly from body text links.",
+    "Clicking the button takes the reader to a submission form."
+   ],
+   "whatShouldBeProvided": [
+    "The intro line of text.",
+    "The button's call-to-action text.",
+    "The link to the submission form."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at the end of the article."
+    },
+    {
+     "title": "Set intro text",
+     "detail": "Write the short line introducing the invitation."
+    },
+    {
+     "title": "Set button text & link",
+     "detail": "Add the call-to-action wording and form URL."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check it reads naturally after the story's ending."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "End of interview-style franchise pieces (Naira Life, Sex Life, Love Life).",
+    "Any recurring series that depends on reader-submitted stories.",
+    "Not for one-off news or feature stories with no ongoing submission pipeline."
+   ],
+   "caution": "Keep this specific to franchises with an open submission pipeline — using it without one sets a false expectation.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "“Yes, I want to do a Naira Life!” submission CTA",
+     "url": "https://www.zikoko.com/money/nairalife-this-designer-earns-3m-monthly-but-still-feels-poor/"
+    }
+   ],
+   "code": "<!-- wp:bcm/story-submission-cta {\"text\":\"Want to share your story?\",\"buttonLabel\":\"Submit your story\",\"url\":\"https://example.com/submit\"} /-->",
+   "codePretty": "{\n  \"text\": \"Want to share your story?\",\n  \"buttonLabel\": \"Submit your story\",\n  \"url\": \"https://example.com/submit\"\n}"
+  },
+  {
+   "id": "pull-quote",
+   "category": "editorial",
+   "name": "Quotes",
+   "demo": "quote",
+   "cardDesc": "A native WordPress block that highlights a key line within the article body.",
+   "tagline": "A native WordPress block that lets writers pull a short, striking line out of the article and display it in a larger, distinct style.",
+   "definition": "The Pull Quote block is a native WordPress block that highlights a short, impactful line from the article as a large, styled quote, pulling the reader's eye to it distinctly from the surrounding body text.",
+   "howItWorks": "The writer adds the Pull Quote block at the point in the article where a line deserves emphasis. WordPress renders it in a larger, distinct style, set apart from the paragraph text around it, with an optional citation underneath.",
+   "whatIsExpected": [
+    "The writer places the block at the point in the article where a line should stand out.",
+    "The quote renders in a larger, distinct style, separate from the surrounding paragraph text.",
+    "An optional citation can appear beneath the quote to credit the speaker or source."
+   ],
+   "whatShouldBeProvided": [
+    "The quote text itself.",
+    "An optional citation or attribution."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add the Pull Quote block from the block panel."
+    },
+    {
+     "title": "Add quote text",
+     "detail": "Type or paste the line you want to highlight."
+    },
+    {
+     "title": "Add citation",
+     "detail": "Optional — credit the speaker or source."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check how it reads against the surrounding paragraph."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "A striking or quotable line worth pulling out of a long interview or feature.",
+    "Breaking up long stretches of body text for easier reading.",
+    "Emphasizing a key stat or claim mid-article."
+   ],
+   "caution": "Avoid overusing it on one page — too many pull quotes dilute the emphasis and make the article feel busy.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "#NairaLife: This Designer Has Gone From $5 Gigs to Earning ₦3.2m/Month. But He Feels Poorer",
+     "url": "https://www.zikoko.com/money/nairalife-this-designer-earns-3m-monthly-but-still-feels-poor/"
+    }
+   ],
+   "code": "<!-- wp:bcm/pull-quote {\"value\":\"A line worth pulling out.\",\"citation\":\"Optional attribution\"} /-->",
+   "codePretty": "{\n  \"value\": \"A line worth pulling out.\",\n  \"citation\": \"Optional attribution\"\n}"
+  },
+  {
+   "id": "event-ticket-link",
+   "category": "editorial",
+   "name": "Event/Ticket Promo Link",
+   "demo": "divider-link",
+   "cardDesc": "A simple underlined text link, set off by divider rules, promoting an event or ticket.",
+   "tagline": "A plain text link bounded by horizontal rules, used to promote an event or ticket sale within an article.",
+   "definition": "A minimal callout consisting of a single underlined link — like an event ticket page — bounded above and below by thin horizontal divider rules.",
+   "howItWorks": "The writer places a short, linked line of text at a natural break in the article, with divider rules above and below to visually separate it from the surrounding paragraphs.",
+   "whatIsExpected": [
+    "A single line of underlined link text appears, bounded by divider rules above and below.",
+    "The link text is short and action-oriented (e.g. “Get your Moonshot 2026 ticket”).",
+    "Clicking the link takes the reader to the relevant event or ticket page."
+   ],
+   "whatShouldBeProvided": [
+    "The short link text.",
+    "The destination URL."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at a natural break in the article."
+    },
+    {
+     "title": "Set link text",
+     "detail": "Write short, action-oriented wording."
+    },
+    {
+     "title": "Set URL",
+     "detail": "Link to the event or ticket page."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the dividers render cleanly around the link."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Promoting a Zikoko-run event, ticket sale, or product mid-article.",
+    "Any single, simple call-to-action that doesn't need a full graphic treatment.",
+    "Cross-promoting content within a related article via a plain link."
+   ],
+   "caution": "It's visually minimal — use the Newsletter Promo Card instead when something needs to stand out strongly.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "“Get your Moonshot 2026 ticket”",
+     "url": "https://www.zikoko.com/"
+    }
+   ],
+   "code": "<!-- wp:bcm/event-ticket-link {\"text\":\"Get tickets to the event\",\"url\":\"https://example.com/tickets\"} /-->",
+   "codePretty": "{\n  \"text\": \"Get tickets to the event\",\n  \"url\": \"https://example.com/tickets\"\n}"
+  },
+  {
+   "id": "read-next-link",
+   "category": "editorial",
+   "name": "Read More Link",
+   "demo": "divider-link",
+   "cardDesc": "A single related-article recommendation, labeled “Read Next” and bounded by divider rules.",
+   "tagline": "A single related-story recommendation labeled “Read Next,” bounded by divider rules, encouraging the reader to continue browsing.",
+   "definition": "A minimal callout recommending one related article, formatted as “Read Next: [title]” and bounded by horizontal divider rules, similar in style to the Event/Ticket Link.",
+   "howItWorks": "The writer places a single related-article link at a natural break or at the end of the current story, labeled clearly so the reader knows it's a recommendation rather than part of the current article.",
+   "whatIsExpected": [
+    "The label “Read Next:” appears before the linked article title.",
+    "The block is bounded by divider rules above and below, matching the Event/Ticket Link style.",
+    "Clicking the link takes the reader directly to the recommended article."
+   ],
+   "whatShouldBeProvided": [
+    "The linked article's title.",
+    "The article's URL."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at a natural break or the story's end."
+    },
+    {
+     "title": "Select article",
+     "detail": "Choose the related story to recommend."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check the link and dividers render correctly."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Mid-article, when a related story adds useful context.",
+    "At the end of an article, to keep the reader browsing the site.",
+    "Distinct from the Article Page pattern's “Related Stories” section, since this is a single, manually chosen link."
+   ],
+   "caution": "Don't overuse this within one article — one or two well-chosen links work better than several competing recommendations.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "“Read Next: I Grew Up With a Dad Who Tried to Burn Our Family Alive”",
+     "url": "https://www.zikoko.com/"
+    }
+   ],
+   "code": "<!-- wp:bcm/read-next-link {\"label\":\"Read more\",\"text\":\"Title of the related story\",\"url\":\"https://example.com/story\"} /-->",
+   "codePretty": "{\n  \"label\": \"Read more\",\n  \"text\": \"Title of the related story\",\n  \"url\": \"https://example.com/story\"\n}"
+  },
+  {
+   "id": "survey-poll-cta",
+   "category": "editorial",
+   "name": "Survey/Poll CTA",
+   "demo": "survey-cta",
+   "cardDesc": "A callout inviting readers to contribute to ongoing research, like an income report.",
+   "tagline": "A callout box inviting readers to contribute data to an ongoing survey or research project, like an income report.",
+   "definition": "A callout embedded within an article, inviting the reader to participate in an ongoing survey or research effort connected to the story's topic.",
+   "howItWorks": "The writer places a short invitation explaining what the survey is for, followed by a link or button to the actual survey form.",
+   "whatIsExpected": [
+    "A short line explains the purpose of the survey (e.g. “help us build an income report”).",
+    "A link or button leads to the actual survey form.",
+    "The callout is visually distinct from the surrounding body text."
+   ],
+   "whatShouldBeProvided": [
+    "The explanatory text.",
+    "The survey form link."
+   ],
+   "howToUse": [
+    {
+     "title": "Insert block",
+     "detail": "Add it at a natural break in the article."
+    },
+    {
+     "title": "Set explanatory text",
+     "detail": "Write why the survey matters."
+    },
+    {
+     "title": "Set link",
+     "detail": "Add the survey form URL."
+    },
+    {
+     "title": "Preview",
+     "detail": "Check it reads clearly and the link works."
+    },
+    {
+     "title": "Save",
+     "detail": "Save the block."
+    }
+   ],
+   "whereToUse": [
+    "Stories connected to an active research project or ongoing data collection.",
+    "Franchise pieces where reader-contributed data feeds future reporting (e.g. NairaLife income reports).",
+    "Not for one-off stories with no connected research effort."
+   ],
+   "caution": "Be clear about what the data will be used for — vague asks reduce trust and response rates.",
+   "examples": [
+    {
+     "tag": "Zikoko",
+     "headline": "“Help us build an income report” survey callout in a NairaLife piece",
+     "url": "https://www.zikoko.com/money/nairalife-this-designer-earns-3m-monthly-but-still-feels-poor/"
+    }
+   ],
+   "code": "<!-- wp:bcm/survey-poll-cta {\"heading\":\"Help shape our next report\",\"text\":\"Takes two minutes.\",\"buttonLabel\":\"Take the survey\",\"url\":\"https://example.com/survey\"} /-->",
+   "codePretty": "{\n  \"heading\": \"Help shape our next report\",\n  \"text\": \"Takes two minutes.\",\n  \"buttonLabel\": \"Take the survey\",\n  \"url\": \"https://example.com/survey\"\n}"
+  }
+ ]
+}

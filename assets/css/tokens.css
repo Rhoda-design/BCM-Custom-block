@@ -1,0 +1,19 @@
+/* Design tokens. Values come from the BCM Website v2 Figma file. */
+:root{
+  --bcm-font: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bcm-ink: #373736;          /* Title text */
+  --bcm-ink-soft: #6b6b69;     /* Body / descriptions */
+  --bcm-ink-faint: #b3b3b3;    /* Inactive labels */
+  --bcm-bg: #fff9ec;           /* Page */
+  --bcm-surface: #ffffff;      /* Cards */
+  --bcm-panel: #f3f3f3;        /* Card preview panel */
+  --bcm-button: #fafafa;       /* Inactive button fill */
+  --bcm-line: rgba(55,55,54,.14);
+  --bcm-yellow: #ffb415;       /* The only accent. Use sparingly. */
+  --bcm-black: #000;
+
+  --bcm-r-sm: 8px; --bcm-r-md: 16px; --bcm-r-lg: 24px; --bcm-r-pill: 999px;
+  --bcm-s1: 4px; --bcm-s2: 8px; --bcm-s3: 12px; --bcm-s4: 16px; --bcm-s5: 24px; --bcm-s6: 32px; --bcm-s7: 48px; --bcm-s8: 72px;
+  --bcm-max: 1280px;
+  --bcm-ease: cubic-bezier(.2,.7,.2,1);
+}
