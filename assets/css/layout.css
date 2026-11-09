@@ -7,16 +7,17 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-skip{position:absolute;left:-999px;top:8px;background:var(--bcm-ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:50}
 .bcm-skip:focus{left:8px}
 
-.bcm-header{padding:20px var(--bcm-gutter) 0;max-width:calc(var(--bcm-max) + 2*var(--bcm-gutter));margin:0 auto}
+.bcm-header{padding:28px var(--bcm-gutter) 0;display:flex;justify-content:center}
 .bcm-logo{display:inline-block;line-height:0}
-.bcm-logo img{height:60px;width:auto}
+.bcm-logo img{height:96px;width:auto}
 
 .bcm-main{max-width:calc(var(--bcm-max) + 2*var(--bcm-gutter));margin:0 auto;padding:0 var(--bcm-gutter);min-height:70vh;outline:none}
 
 /* Top of gallery */
-.bcm-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:56px 0 40px}
-.bcm-top h1{margin:0;font-size:clamp(34px,5vw,48px);line-height:1.05;font-weight:600;letter-spacing:-.03em}
-.bcm-top p{margin:12px 0 0;max-width:560px;color:var(--bcm-ink-soft);font-size:17px}
+.bcm-top{padding:40px 0 24px;text-align:center}
+.bcm-top h1{margin:0;font-size:clamp(38px,6vw,64px);line-height:1.05;font-weight:600;letter-spacing:-.03em}
+.bcm-top p{margin:16px auto 0;max-width:711px;color:var(--bcm-ink-soft);font-size:clamp(16px,2vw,20px)}
+.bcm-bar{display:flex;justify-content:flex-end;margin-bottom:28px}
 
 /* View toggle: icon-only segmented control with a sliding thumb */
 .bcm-toggle{position:relative;display:inline-flex;flex:none;padding:4px;border-radius:var(--bcm-r-pill);background:#e6e2da}
@@ -28,21 +29,23 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-toggle svg{width:18px;height:18px}
 
 /* Gallery */
-.bcm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px;padding-bottom:96px}
-.bcm-card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit}
-.bcm-card__preview{background:var(--bcm-panel);border-radius:var(--bcm-r-lg);aspect-ratio:5/4;display:grid;place-items:center;overflow:hidden;transition:background .3s}
-.bcm-card__preview svg{width:84%;height:auto;max-height:84%;transition:transform .5s var(--bcm-ease)}
+.bcm-grid{--gap:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:56px var(--gap);padding-bottom:96px}
+.bcm-card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;flex:0 0 calc((100% - 2*var(--gap))/3);min-width:0}
+.bcm-card__preview{container-type:inline-size;position:relative;background:var(--bcm-panel);border:1px solid var(--bcm-panel-line);border-radius:var(--bcm-r-lg);aspect-ratio:392/321;overflow:hidden;transition:border-color .3s,box-shadow .4s var(--bcm-ease)}
 .bcm-card:hover .bcm-card__preview{background:#e8e3d8}
-.bcm-card:hover .bcm-card__preview svg{transform:scale(1.05)}
-.bcm-card__body{display:flex;flex-direction:column;gap:6px}
+.bcm-card:hover .bcm-card__body{display:flex;flex-direction:column;gap:6px}
 .bcm-card__title{margin:0;font-size:18px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
 .bcm-card__desc{margin:0;color:var(--bcm-ink-soft);font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .bcm-card__meta{font-size:13px;color:var(--bcm-ink-faint)}
+.bcm-card__cta{align-self:flex-end;margin-top:auto;padding-top:8px;font-size:14px;font-weight:500;display:inline-flex;gap:4px}
+.bcm-card__cta span{transition:transform .25s var(--bcm-ease)}
+.bcm-card:hover .bcm-card__cta span{transform:translateX(3px)}
 
 /* List view: same markup, laid out as white rows */
-.bcm-grid[data-view="list"]{grid-template-columns:minmax(0,760px);gap:12px;justify-content:center}
-.bcm-grid[data-view="list"] .bcm-card{background:#fff;border-radius:var(--bcm-r-md);padding:18px 24px 18px;transition:background .25s}
-.bcm-grid[data-view="list"] .bcm-card:hover{background:#fffdf9}
+.bcm-grid[data-view="list"]{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:12px}
+.bcm-grid[data-view="list"] .bcm-card{flex:none;width:min(760px,100%);background:#fff;border:1px solid var(--bcm-line);border-radius:var(--bcm-r-md);padding:18px 24px;transition:background .25s,border-color .25s}
+.bcm-grid[data-view="list"] .bcm-card:hover{background:var(--bcm-panel);border-color:var(--bcm-panel-line)}
+.bcm-grid[data-view="list"] .bcm-card__cta{display:none}
 .bcm-grid[data-view="list"] .bcm-card__preview{display:none}
 .bcm-grid[data-view="list"] .bcm-card__title{font-size:20px}
 .bcm-grid[data-view="list"] .bcm-card__desc{-webkit-line-clamp:2}
@@ -66,8 +69,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-back:hover{color:var(--bcm-ink)}
 .bcm-article h1{margin:0;font-size:clamp(34px,5vw,46px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
 .bcm-lede{margin:16px 0 32px;font-size:18px;color:var(--bcm-ink-soft)}
-.bcm-demo{background:var(--bcm-panel);border-radius:var(--bcm-r-lg);aspect-ratio:16/8;width:100%;display:grid;place-items:center;overflow:hidden;margin-bottom:56px}
-.bcm-demo svg{height:84%;width:auto;max-width:90%;max-height:100%}
+.bcm-demo{margin-bottom:56px}
+.bcm-demo .bcm-card__preview{max-width:520px}
 .bcm-section{padding:0 0 44px}
 .bcm-section h2{margin:0 0 12px;font-size:20px;font-weight:600;letter-spacing:-.01em}
 .bcm-section p{margin:0 0 12px;color:var(--bcm-ink-soft);font-size:17px}
@@ -139,16 +142,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-empty{grid-column:1/-1;color:var(--bcm-ink-soft)}
 
 @media (max-width:1000px){
-  .bcm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bcm-card{flex-basis:calc((100% - var(--gap))/2)}
 }
 @media (max-width:760px){
   .bcm-top{flex-direction:column;align-items:flex-start;padding:36px 0 28px}
   .bcm-toggle{align-self:flex-end;margin-top:-56px}
   .bcm-grid{grid-template-columns:1fr;gap:36px}
-  .bcm-grid[data-view="list"]{grid-template-columns:1fr}
+  .bcm-grid[data-view="list"]{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:12px}
   .bcm-detail{grid-template-columns:minmax(0,1fr);gap:16px;padding-top:24px}
   .bcm-side{position:sticky;top:0;z-index:10;background:var(--bcm-bg);margin:0 calc(-1*var(--bcm-gutter));padding:12px var(--bcm-gutter);border-bottom:1px solid var(--bcm-line)}
-  .bcm-demo{aspect-ratio:4/3}
   .bcm-side h2{display:none}
   .bcm-toc{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
   .bcm-toc a{white-space:nowrap}

@@ -1,0 +1,79 @@
+/* Card preview mock-ups. Sizes use cqw (1% of the card width) so they scale with the card.
+   F1 is the emphasised frame in full brand yellow; the rest are tints of it. */
+.pv{position:absolute;inset:0;padding:6cqw;display:flex;flex-direction:column;justify-content:center;font-weight:300;color:#1d1d1c;overflow:hidden}
+.pv h3,.pv h4,.pv p,.pv strong{margin:0}
+.pv p{color:#3d3d3b}
+.f1{background:#ffb415}.f2{background:rgba(255,180,21,.62)}.f3{background:rgba(255,180,21,.4)}.f4{background:rgba(255,180,21,.25)}
+
+/* Image rail */
+.pv-rail{padding:6cqw 0 6cqw 6cqw}
+.pv-rail .pv-track{display:flex;gap:1.2cqw;height:100%;width:118%;animation:pvPan 7s ease-in-out infinite alternate}
+.pv-rail i{display:block;border-radius:1.2cqw}
+.pv-rail .f1{flex:0 0 14cqw}.pv-rail .f2{flex:0 0 27cqw}.pv-rail .f3{flex:0 0 25cqw}.pv-rail .f4{flex:0 0 17cqw}
+@keyframes pvPan{to{transform:translateX(-7cqw)}}
+
+/* Compendium Edition */
+.pv-edition h3{font-size:5.4cqw;font-weight:400;margin-bottom:3cqw}
+.pv-edition p{font-size:3.5cqw;line-height:1.5;margin-bottom:5cqw;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pv-chips{display:flex;gap:2cqw;margin-bottom:5cqw}
+.pv-chips i{width:22cqw;height:9cqw}
+.pv-edition span{font-size:5cqw;font-weight:400}
+
+/* Compendium Downloads */
+.pv-downloads{flex-direction:row;align-items:center;gap:4cqw}
+.pv-copy{flex:1;min-width:0}
+.pv-downloads h3{font-size:5cqw;font-weight:400;line-height:1.25;margin-bottom:3.5cqw}
+.pv-downloads p{font-size:3.4cqw;line-height:1.5;margin-bottom:5cqw;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pv-downloads b{display:inline-block;background:#1d1d1c;color:#fff;font-weight:300;font-size:2.8cqw;padding:3cqw 5cqw;border-radius:1.2cqw}
+.pv-cover{flex:0 0 27cqw;height:50cqw;background:#bab8b2;border-radius:1cqw}
+
+/* Case Study Quote */
+.pv-quote div{display:flex;align-items:stretch;background:#f6f6f5}
+.pv-quote span{flex:0 0 1cqw;background:#ffb415}
+.pv-quote p{font-size:5cqw;font-weight:400;padding:8cqw 5cqw 8cqw 6cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#1d1d1c;min-width:0}
+
+/* Ken Burns */
+.pv-kb{padding:0}
+.pv-kb svg{width:100%;height:100%}
+.kb-arrows{animation:pvDash 3s linear infinite}
+.kb-focus{transform-box:fill-box;transform-origin:center;animation:pvZoom 4.5s ease-in-out infinite alternate}
+@keyframes pvDash{to{stroke-dashoffset:-7}}
+@keyframes pvZoom{from{transform:scale(1.18)}to{transform:scale(.9)}}
+
+/* Scroll Swap */
+.pv-swap-prev{flex-direction:row;align-items:center;gap:3cqw;padding:10cqw 6cqw}
+.pv-img{flex:1;height:100%;background:#bab8b2;border-radius:1cqw}
+.pv-up{flex:0 0 5cqw;height:70%;overflow:visible}
+.pv-up path{animation:pvDash 2.2s linear infinite}
+
+/* Page Category Block */
+.pv-category .pv-bar{display:block;height:11cqw;background:#bab8b2;border-radius:1cqw;margin-bottom:5cqw}
+.pv-category h3{font-size:4.8cqw;font-weight:400;line-height:1.3;margin-bottom:3cqw}
+.pv-category p{font-size:3.2cqw;margin-bottom:5cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-category b{align-self:flex-start;background:#1d1d1c;color:#fff;font-weight:300;font-size:2.8cqw;padding:3cqw 6cqw;border-radius:1.2cqw}
+
+/* BCM Section */
+.pv-section h4{font-size:3.8cqw;font-weight:600;letter-spacing:.08em;margin-bottom:4cqw}
+.pv-section strong{font-size:3.6cqw;font-weight:600;line-height:1.45;margin-bottom:4cqw;display:block}
+.pv-section p{font-size:3.4cqw;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Horizontal Scroll */
+.pv-horizontal{align-items:center;padding:8cqw 6cqw}
+.pv-horizontal .pv-track{display:flex;gap:1.2cqw;width:100%;height:62%;animation:pvPan2 5s ease-in-out infinite alternate}
+.pv-horizontal i{flex:1;border-radius:1.2cqw}
+.pv-horizontal .f1{flex:1.5}
+.pv-swap{width:9cqw;height:9cqw;margin-top:5cqw;color:#1d1d1c}
+@keyframes pvPan2{to{transform:translateX(-4cqw)}}
+
+/* Stats Grid */
+.pv-stats{flex-direction:row;gap:1.4cqw;padding:6cqw}
+.pv-stats>div{flex:1;border-radius:1.2cqw;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:5cqw 4cqw}
+.pv-stats u{display:block;width:7cqw;height:1cqw;background:#1d1d1c}
+.pv-stats s{display:block;width:10cqw;height:8cqw;background:#1d1d1c;border-radius:.8cqw}
+
+/* Full Width Hero */
+.pv-hero{padding:10cqw 6cqw}
+.pv-hero i{display:block;width:100%;height:100%;background:#bab8b2;border-radius:1cqw;animation:pvBreath 6s ease-in-out infinite alternate}
+@keyframes pvBreath{to{transform:scale(1.03)}}
+
+@media (prefers-reduced-motion:reduce){.pv *,.pv{animation:none!important}}

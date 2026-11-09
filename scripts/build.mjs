@@ -13,10 +13,10 @@ const fail = (msg) => errors.push(msg);
 
 const data = JSON.parse(await readFile(join(root, "data/blocks.json"), "utf8"));
 
-// The diagrams file registers window.BCM_DIAGRAM; run it in a sandbox to test every demo type.
+// previews.js registers window.BCM_PREVIEW; run it in a sandbox to test every demo type.
 const sandbox = { window: {} };
-vm.runInNewContext(await readFile(join(root, "assets/js/diagrams.js"), "utf8"), sandbox);
-const diagram = sandbox.window.BCM_DIAGRAM;
+vm.runInNewContext(await readFile(join(root, "assets/js/previews.js"), "utf8"), sandbox);
+const diagram = sandbox.window.BCM_PREVIEW;
 
 const cats = new Set(data.categories.map((c) => c.id));
 const ids = new Set();
@@ -30,7 +30,7 @@ for (const b of data.blocks) {
   ids.add(b.id);
   if (!/^[a-z0-9-]+$/.test(b.id || "")) fail(`${label}: id must be lowercase letters, numbers and dashes`);
   if (!cats.has(b.category)) fail(`${label}: unknown category "${b.category}"`);
-  if (!String(diagram(b.demo)).includes("<svg")) fail(`${label}: no diagram for demo "${b.demo}"`);
+  if (!String(diagram(b.demo)).includes("pv")) fail(`${label}: no preview for demo "${b.demo}"`);
   for (const e of b.examples || []) if (!/^https?:\/\//.test(e.url || "")) fail(`${label}: example needs a full URL`);
   try { JSON.parse(b.codePretty); } catch { fail(`${label}: codePretty is not valid JSON`); }
 }

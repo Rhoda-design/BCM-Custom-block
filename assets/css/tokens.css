@@ -5,9 +5,10 @@
   --bcm-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Neutrals: most of the page */
-  --bcm-bg: #f5f3ef;
+  --bcm-bg: #ffffff;
   --bcm-surface: #ffffff;
-  --bcm-panel: #eeeae2;
+  --bcm-panel: #fff8ea;
+  --bcm-panel-line: #ebe3d1;
   --bcm-ink: #373736;
   --bcm-ink-soft: #6b6b69;
   --bcm-ink-faint: #a3a29e;

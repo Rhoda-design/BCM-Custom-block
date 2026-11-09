@@ -27,19 +27,20 @@
 
   function cardHTML(b, i) {
     return '<a class="bcm-card' + (firstLoad ? ' bcm-enter' : '') + '" style="--i:' + i + '" href="#/blocks/' + b.id + '">' +
-      '<div class="bcm-card__preview">' + window.BCM_DIAGRAM(b.demo) + '</div>' +
+      '<div class="bcm-card__preview">' + window.BCM_PREVIEW(b.demo) + '</div>' +
       '<div class="bcm-card__body"><h2 class="bcm-card__title">' + esc(b.name) + '</h2>' +
       '<p class="bcm-card__desc">' + esc(b.cardDesc) + '</p>' +
-      '<span class="bcm-card__meta">' + metaLine(b) + '</span></div></a>';
+      '<span class="bcm-card__meta">' + metaLine(b) + '</span></div>' +
+      '<span class="bcm-card__cta">View demo <span aria-hidden="true">\u2192</span></span></a>';
   }
 
   function renderGallery() {
     document.title = "BCM Custom Blocks";
     main.innerHTML =
-      '<section class="bcm-top"><div><h1>' + HERO.title + '</h1><p>' + HERO.body + '</p></div>' +
-      '<div class="bcm-toggle" data-view="' + view + '" role="group" aria-label="Layout"><span class="bcm-toggle__thumb" aria-hidden="true"></span>' +
+      '<section class="bcm-top"><h1>' + HERO.title + '</h1><p>' + HERO.body + '</p></section>' +
+      '<div class="bcm-bar"><div class="bcm-toggle" data-view="' + view + '" role="group" aria-label="Layout"><span class="bcm-toggle__thumb" aria-hidden="true"></span>' +
       '<button type="button" data-view="gallery" aria-label="Gallery view" aria-pressed="' + (view === "gallery") + '">' + ICON_GRID + '</button>' +
-      '<button type="button" data-view="list" aria-label="List view" aria-pressed="' + (view === "list") + '">' + ICON_LIST + '</button></div></section>' +
+      '<button type="button" data-view="list" aria-label="List view" aria-pressed="' + (view === "list") + '">' + ICON_LIST + '</button></div></div>' +
       '<div class="bcm-grid" id="bcm-grid" data-view="' + view + '">' + DATA.blocks.map(cardHTML).join("") + '</div>';
     firstLoad = false;
     main.querySelector(".bcm-toggle").addEventListener("click", function (e) {
@@ -94,7 +95,7 @@
     main.innerHTML =
       '<div class="bcm-detail"><aside class="bcm-side"><h2>On this page</h2><ul class="bcm-toc">' + toc + '</ul></aside>' +
       '<article class="bcm-article"><a class="bcm-back" href="#/">← All components</a><h1>' + esc(b.name) + '</h1>' +
-      '<p class="bcm-lede">' + esc(b.tagline) + '</p><div class="bcm-demo">' + window.BCM_DIAGRAM(b.demo) + '</div>' +
+      '<p class="bcm-lede">' + esc(b.tagline) + '</p><div class="bcm-demo"><div class="bcm-card__preview">' + window.BCM_PREVIEW(b.demo) + '</div></div>' +
       sec("definition", "Definition", '<p>' + esc(b.definition) + '</p>') +
       sec("how-it-works", "How it works", '<p>' + esc(b.howItWorks) + '</p>') +
       sec("expected", "What is expected", ul(b.whatIsExpected)) +
