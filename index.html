@@ -5,32 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BCM Custom Blocks</title>
 <meta name="description" content="A collection of custom blocks designed to bring richer storytelling and interactive experiences to BCM articles.">
+<link rel="icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
 <a class="bcm-skip" href="#bcm-main">Skip to content</a>
 <header class="bcm-header">
-  <a class="bcm-logo" href="#/" aria-label="Big Cabal Media, BCM Custom Blocks home">
-    <span class="bcm-logo__mark" aria-hidden="true"></span>Big Cabal Media
-  </a>
+  <a class="bcm-logo" href="#/" aria-label="Big Cabal Media, BCM Custom Blocks home"><img src="assets/img/logo.png" alt="Big Cabal Media"></a>
 </header>
 <main id="bcm-main" class="bcm-main" tabindex="-1"></main>
 <footer class="bcm-footer">
+  <img class="bcm-footer__logo" src="assets/img/logo-footer.png" alt="Big Cabal Media">
   <div class="bcm-footer__inner">
-    <div class="bcm-footer__col bcm-footer__col--wide">
-      <h2>Address</h2><p>18, Nnobi Street, Surulere, Lagos, Nigeria</p>
-      <h2>Contact</h2><p>+234 800 000 0000<br>hello@bigcabal.com</p>
+    <div class="bcm-footer__group bcm-footer__group--left">
+      <div>
+        <h2>Address</h2>
+        <p>18, Nnobi Street, Surulere,<br>Lagos, Nigeria</p>
+        <p><a class="bcm-footer__map" href="#">View in Map</a></p>
+        <div class="bcm-social" aria-label="Social links">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.2-1 1.1-1H17V2h-2.6C11.6 2 10 3.7 10 6.2V8H8v3.5h2V22h4V11.5h2.8L17 8h-3z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7C8.4 8.7 5.4 7 3.4 4.5a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.3 4.1-.6.2-1.2.2-1.8.1.5 1.6 2 2.8 3.8 2.9A8.2 8.2 0 0 1 2 18.3 11.6 11.6 0 0 0 8.3 20c7.5 0 11.7-6.3 11.5-12v-.5c.8-.6 1.5-1.3 2.2-2.1z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5c0-1.2 0-2.8-1.7-2.8S14 14.1 14 15.9V21h-4V9.5z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.2 5.6a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM16 2H8a6 6 0 0 0-6 6v8a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6V8a6 6 0 0 0-6-6zm4.3 14a4.3 4.3 0 0 1-4.3 4.3H8A4.3 4.3 0 0 1 3.7 16V8A4.3 4.3 0 0 1 8 3.7h8A4.3 4.3 0 0 1 20.3 8z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p>+234 800 000 0000<br>+234 800 000 0000<br><a href="mailto:hello@bigcabal.com">hello@bigcabal.com</a></p>
+      </div>
     </div>
-    <div class="bcm-footer__col"><h2>Brands</h2><ul><li>Zikoko</li><li>TechCabal</li><li>TC Insights</li><li>Cabal Creative</li></ul></div>
-    <div class="bcm-footer__col"><h2>Careers</h2><ul><li>Culture Code</li><li>Life at BCM</li><li>Job Roles</li><li>Photo Gallery</li></ul></div>
-    <div class="bcm-footer__col"><h2>Legals</h2><ul><li>Terms of use</li><li>Privacy Policy</li><li>Tax Report</li></ul></div>
-    <div class="bcm-footer__col"><h2>Downloads</h2><ul><li>Media Kit</li></ul><h2>Products</h2><ul><li>Z! Memes</li></ul></div>
+    <div class="bcm-footer__group">
+      <div><h2>Brands</h2><ul><li>Zikoko</li><li>Tech Cabal</li><li>TC Insights</li><li>Cabal Creative</li></ul></div>
+      <div><h2>Careers</h2><ul><li>Culture Code</li><li>Life at BCM</li><li>Job Roles</li><li>Photo Gallery</li></ul></div>
+      <div><h2>Legals</h2><ul><li>Terms of use</li><li>Privacy Policy</li><li>Tax Report</li></ul></div>
+      <div><h2 class="is-serif">Downloads</h2><ul><li>Media Kit</li></ul></div>
+      <div><h2>Products</h2><ul><li>Z! Memes</li></ul></div>
+    </div>
   </div>
   <p class="bcm-footer__legal">&copy; Big Cabal Media 2022. All rights reserved.</p>
+  <div class="bcm-footer__end"></div>
 </footer>
 <script src="assets/js/diagrams.js"></script>
 <script src="assets/js/app.js"></script>

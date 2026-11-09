@@ -5,7 +5,9 @@ Plain HTML, CSS and JavaScript. No build step.
 
 ## Run locally
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+npm run dev     # http://localhost:8000, no dependencies to install
+npm run check   # validates data/blocks.json (ids, categories, demo diagrams, example links)
+npm run build   # validates, then writes the deployable site to dist/
 ```
 Opening `index.html` directly will not work, because the page loads `data/blocks.json`.
 
@@ -13,7 +15,10 @@ Opening `index.html` directly will not work, because the page loads `data/blocks
 ```
 index.html              page shell, header and footer
 data/blocks.json        every block: copy, steps, example markup
-assets/css/tokens.css   Figma design tokens (colours, spacing, radii, font)
+assets/css/tokens.css   design tokens: Figma neutrals and font, plus the amber tint/shade ramp
+assets/img/             logos
+scripts/build.mjs       validation and build (Node, no packages)
+scripts/dev.mjs         local static server
 assets/css/layout.css   layout, components and motion
 assets/js/app.js        gallery, list/gallery toggle, filters, detail page, scroll-spy
 assets/js/diagrams.js   animated SVG demo for each block
@@ -25,8 +30,10 @@ set its `category` and pick a `demo` diagram. The `code` and `codePretty` fields
 attribute names are illustrative until developers confirm them.
 
 ## Design rules
-- Urbanist; colours and spacing live in `tokens.css`.
-- Yellow `#FFB415` is the only accent: active filter, hover/focus, the active marker in the side nav, and the motion arrows in demos.
+- Urbanist. Page and cards are white and warm grey.
+- Yellow `#FFB415` is for attention only: the active marker in the side nav and the note band on a detail page. Illustrations use one amber ramp (`--bcm-d-900` to `--bcm-d-50` in `tokens.css`).
+- The layout follows the component gallery reference: no category pills, an icon-only grid/list toggle, and a detail page with an "On this page" nav.
+- The footer follows the Figma file exactly.
 - All classes are prefixed `bcm-` so they will not clash with a WordPress theme.
 - Routing uses the URL hash (`#/blocks/ken-burns`), so it works on any host, including a WordPress page.
 - Motion respects `prefers-reduced-motion`.
@@ -34,7 +41,7 @@ attribute names are illustrative until developers confirm them.
 ## Deploy on Vercel
 1. Push this repo to GitHub.
 2. In Vercel choose **Add New, Project**, import the repo.
-3. Framework preset: **Other**. Leave build command and output directory empty. Deploy.
+3. Framework preset: **Other**. `vercel.json` already sets the build command (`npm run build`) and output folder (`dist`). Deploy.
 
 ## Moving to WordPress
 Copy `assets/` into the theme, enqueue `tokens.css`, `layout.css`, `diagrams.js` and `app.js`,

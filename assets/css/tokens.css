@@ -1,19 +1,31 @@
-/* Design tokens. Values come from the BCM Website v2 Figma file. */
+/* Design tokens. Neutrals and type come from the BCM Website v2 Figma file.
+   The amber ramp is one hue (BCM yellow) in tints and shades, used for illustrations. */
 :root{
   --bcm-font: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bcm-ink: #373736;          /* Title text */
-  --bcm-ink-soft: #6b6b69;     /* Body / descriptions */
-  --bcm-ink-faint: #b3b3b3;    /* Inactive labels */
-  --bcm-bg: #fff9ec;           /* Page */
-  --bcm-surface: #ffffff;      /* Cards */
-  --bcm-panel: #f3f3f3;        /* Card preview panel */
-  --bcm-button: #fafafa;       /* Inactive button fill */
-  --bcm-line: rgba(55,55,54,.14);
-  --bcm-yellow: #ffb415;       /* The only accent. Use sparingly. */
-  --bcm-black: #000;
+  --bcm-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --bcm-r-sm: 8px; --bcm-r-md: 16px; --bcm-r-lg: 24px; --bcm-r-pill: 999px;
-  --bcm-s1: 4px; --bcm-s2: 8px; --bcm-s3: 12px; --bcm-s4: 16px; --bcm-s5: 24px; --bcm-s6: 32px; --bcm-s7: 48px; --bcm-s8: 72px;
-  --bcm-max: 1280px;
+  /* Neutrals: most of the page */
+  --bcm-bg: #f5f3ef;
+  --bcm-surface: #ffffff;
+  --bcm-panel: #eeeae2;
+  --bcm-ink: #373736;
+  --bcm-ink-soft: #6b6b69;
+  --bcm-ink-faint: #a3a29e;
+  --bcm-line: rgba(55,55,54,.1);
+
+  /* Brand yellow: attention only (active nav dash, the note band) */
+  --bcm-yellow: #ffb415;
+
+  /* Amber ramp: illustrations only */
+  --bcm-d-900: #3d2a00;
+  --bcm-d-700: #7a5300;
+  --bcm-d-500: #c58a0e;
+  --bcm-d-300: #ffd36e;
+  --bcm-d-100: #ffefc7;
+  --bcm-d-50: #fff8e6;
+
+  --bcm-r-sm: 8px; --bcm-r-md: 14px; --bcm-r-lg: 20px; --bcm-r-pill: 999px;
+  --bcm-gutter: clamp(20px, 5vw, 80px);
+  --bcm-max: 1100px;
   --bcm-ease: cubic-bezier(.2,.7,.2,1);
 }

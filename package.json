@@ -1,0 +1,13 @@
+{
+  "name": "bcm-custom-blocks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Showcase and documentation for BCM's custom WordPress blocks",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "check": "node scripts/build.mjs --check",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
