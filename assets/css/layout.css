@@ -157,6 +157,6 @@ button{font:inherit;color:inherit;cursor:pointer}
   .bcm-footer__inner,.bcm-footer__group{flex-direction:column;gap:32px}
 }
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  :root:not(.m-force) *,:root:not(.m-force) *::before,:root:not(.m-force) *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .m-reveal{opacity:1!important}
 }

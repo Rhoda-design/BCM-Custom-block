@@ -4,7 +4,7 @@
   "use strict";
   var main = document.getElementById("bcm-main");
   var DATA = null, view = "gallery", spy = null, firstLoad = true;
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce = window.BCM_MOTION ? window.BCM_MOTION.reduced : window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   try { view = localStorage.getItem("bcm-view") || "gallery"; } catch (e) {}
 
   var HERO = {

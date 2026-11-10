@@ -8,7 +8,10 @@
    With reduced motion (or no IntersectionObserver) nothing is hidden and counts show final values. */
 (function () {
   "use strict";
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var osReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches, forced = false;
+  try { forced = localStorage.getItem("bcm-motion") === "on"; } catch (e) {}
+  var reduce = osReduce && !forced;
+  if (osReduce && forced) document.documentElement.classList.add("m-force");
   var can = !reduce && "IntersectionObserver" in window;
   if (can) document.documentElement.classList.add("m-on");
 
@@ -106,6 +109,19 @@
     reduced: reduce
   };
   window.BCM_MOTION = M;
+
+  /* If the device asks for reduced motion, say so and let the reviewer opt in to the animations */
+  function note() {
+    var bar = document.createElement("div"); bar.className = "m-note"; bar.setAttribute("role", "status");
+    var on = osReduce && forced;
+    bar.innerHTML = "<span>" + (on ? "Animations are on for this review. Your device is set to reduce motion." : "Your device is set to reduce motion, so animations are switched off.") + "</span><button type=\"button\">" + (on ? "Turn animations off" : "Play animations") + "</button>";
+    bar.querySelector("button").addEventListener("click", function () {
+      try { localStorage.setItem("bcm-motion", on ? "off" : "on"); } catch (e) { bar.firstChild.textContent = "This browser blocks saving the choice, so it can't be switched here."; return; }
+      location.reload();
+    });
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+  if (osReduce) { if (document.body) note(); else document.addEventListener("DOMContentLoaded", note); }
 
   /* Tilt: on pointer devices a card's mock-up leans toward the pointer, then settles back */
   if (can && window.matchMedia("(hover:hover)").matches) {

@@ -173,8 +173,10 @@
   .bcm-skel i{flex-basis:100%}
 }
 @media (max-width:1000px) and (min-width:761px){.bcm-skel i{flex-basis:calc((100% - 32px)/2)}}
+.m-note{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 16px;background:#fff;border-bottom:1px solid #ece9e3;font-size:14px;color:var(--bcm-ink-soft)}
+.m-note button{border:0;border-radius:var(--bcm-r-pill);background:var(--bcm-yellow);color:var(--bcm-ink);font:inherit;font-weight:600;padding:5px 14px;cursor:pointer}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  :root:not(.m-force) *,:root:not(.m-force) *::before,:root:not(.m-force) *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
 .bcm-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
