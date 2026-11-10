@@ -38,8 +38,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-card__desc{margin:0;color:var(--bcm-ink-soft);font-size:15px}
 .bcm-card__meta{font-size:13px;color:var(--bcm-ink-faint)}
 .bcm-card__cta{align-self:flex-end;margin-top:auto;padding-top:8px;font-size:14px;font-weight:500;display:inline-flex;gap:4px}
-.bcm-card__cta span{transition:transform .25s var(--bcm-ease)}
-.bcm-card:hover .bcm-card__cta span{transform:translateX(3px)}
 
 /* List view: same markup, laid out as white rows */
 .bcm-grid[data-view="list"]{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:12px}
@@ -62,7 +60,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bcm-toc a::before{content:"";width:10px;height:2px;background:currentColor;opacity:.5;transition:width .3s var(--bcm-ease),background .3s,opacity .3s}
 .bcm-toc a:hover{color:var(--bcm-ink)}
 .bcm-toc a[aria-current="true"]{color:var(--bcm-ink);font-weight:600}
-.bcm-toc a[aria-current="true"]::before{width:18px;background:var(--bcm-yellow);opacity:1}
+.bcm-toc a[aria-current="true"]::before{width:18px;background:var(--bcm-ink);opacity:.9}
 
 .bcm-article{max-width:680px;min-width:0}
 .bcm-back{display:inline-block;margin-bottom:28px;text-decoration:none;color:var(--bcm-ink-soft);font-size:14px}
