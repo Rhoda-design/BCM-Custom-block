@@ -19,7 +19,7 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function catName(id) { return DATA.categories.filter(function (c) { return c.id === id; })[0].name; }
   function byId(id) { return DATA.blocks.filter(function (b) { return b.id === id; })[0]; }
-  function metaLine(b) { return esc(catName(b.category)) + (b.usedOn && b.usedOn.length ? " · Used on: " + esc(b.usedOn.join(", ")) : ""); }
+  function metaLine(b) { return b.usedOn && b.usedOn.length ? "Used on: " + esc(b.usedOn.join(", ")) : ""; }
 
   /* ---------- Gallery ---------- */
   var ICON_GRID = '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="5.5" height="5.5" rx="1.4"/><rect x="10.5" y="2" width="5.5" height="5.5" rx="1.4"/><rect x="2" y="10.5" width="5.5" height="5.5" rx="1.4"/><rect x="10.5" y="10.5" width="5.5" height="5.5" rx="1.4"/></svg>';
@@ -30,7 +30,7 @@
       '<div class="bcm-card__preview">' + window.BCM_PREVIEW(b.demo) + '</div>' +
       '<div class="bcm-card__body"><h2 class="bcm-card__title">' + esc(b.name) + '</h2>' +
       '<p class="bcm-card__desc">' + esc(b.cardDesc) + '</p>' +
-      '<span class="bcm-card__meta">' + metaLine(b) + '</span></div>' +
+      (metaLine(b) ? '<span class="bcm-card__meta">' + metaLine(b) + '</span>' : '') + '</div>' +
       '<span class="bcm-card__cta">View demo <span aria-hidden="true">\u2192</span></span></a>';
   }
 
