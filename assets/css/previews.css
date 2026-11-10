@@ -30,7 +30,7 @@
 /* Case Study Quote */
 .pv-quote div{display:flex;align-items:stretch;background:#f6f6f5}
 .pv-quote span{flex:0 0 1cqw;background:#ffb415}
-.pv-quote p{font-size:5cqw;font-weight:400;padding:8cqw 5cqw 8cqw 6cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#1d1d1c;min-width:0}
+.pv-quote p{font-size:4.4cqw;font-weight:400;padding:8cqw 5cqw 8cqw 6cqw;color:#1d1d1c;min-width:0;line-height:1.4}
 
 /* Ken Burns */
 .pv-kb{padding:0}

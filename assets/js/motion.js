@@ -129,7 +129,11 @@
     function rest(p) { if (p) { p.style.removeProperty("--rx"); p.style.removeProperty("--ry"); p.style.removeProperty("--sc"); } }
     document.addEventListener("pointermove", function (e) {
       var p = e.target.closest && e.target.closest(".bcm-card__preview");
-      if (p !== cur) { rest(cur); cur = p; }
+      if (p !== cur) {
+        rest(cur); cur = p;
+        /* Hovering a card plays its preview again, so the motion can be seen on demand */
+        if (p && p.classList.contains("is-in") && Date.now() - (p.__played || 0) > 1600) { p.__played = Date.now(); M.replay(p); }
+      }
       if (!p) return;
       var r = p.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
       p.style.setProperty("--ry", (x * 7).toFixed(2) + "deg");
