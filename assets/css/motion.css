@@ -29,11 +29,8 @@
 .m-on .bcm-card[data-rv].is-in{opacity:1;transform:none;transition:opacity var(--m-card) var(--m-out),transform var(--m-card) var(--m-out);transition-delay:var(--d,0ms)}
 
 /* ---- Mock-up motion inside card previews ---- */
-.bcm-card__preview .pv{transition:transform var(--m-card) var(--m-out)}
-@media (hover:hover){
-  /* Tilt: the mock-up leans toward the pointer's side on hover */
-  .bcm-card:hover .bcm-card__preview .pv{transform:perspective(900px) rotateX(2deg) rotateY(-3deg) scale(1.015)}
-}
+.bcm-card__preview .pv{transition:transform 300ms var(--m-out);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1))}
+/* Tilt: motion.js sets --rx/--ry/--sc from the pointer position (pointer devices only) */
 /* Rise */
 .m-on [data-pv]:not(.is-in) .rise{opacity:0;transform:translateY(10px)}
 .m-on [data-pv].is-in .rise{opacity:1;transform:none;transition:opacity var(--m-card) var(--m-out),transform var(--m-card) var(--m-out);transition-delay:calc(160ms + var(--n,0) * 80ms)}
@@ -49,6 +46,13 @@
 /* Blur-up (images resolve from blurred to sharp) */
 .m-on [data-pv]:not(.is-in) .blur{opacity:0;filter:blur(14px)}
 .m-on [data-pv].is-in .blur{opacity:1;filter:none;transition:opacity 700ms var(--m-out),filter 800ms var(--m-out);transition-delay:calc(120ms + var(--n,0) * 80ms)}
+/* Blur-up variants: Colour (grey to colour as it sharpens), Fade (opacity only), Reveal (wipes in from the left) */
+.m-on [data-pv]:not(.is-in) .blur.colour{filter:blur(14px) grayscale(1)}
+.m-on [data-pv].is-in .blur.colour{transition:opacity 700ms var(--m-out),filter 1200ms var(--m-out)}
+.m-on [data-pv]:not(.is-in) .fade{opacity:0}
+.m-on [data-pv].is-in .fade{opacity:1;transition:opacity 900ms var(--m-inout);transition-delay:calc(160ms + var(--n,0) * 80ms)}
+.m-on [data-pv]:not(.is-in) .reveal{clip-path:inset(0 100% 0 0 round 1cqw)}
+.m-on [data-pv].is-in .reveal{clip-path:inset(0 0 0 0 round 1cqw);transition:opacity 700ms var(--m-out),filter 800ms var(--m-out),clip-path 1000ms var(--m-inout);transition-delay:calc(120ms + var(--n,0) * 80ms)}
 /* Bar draw (quote border grows down) */
 .m-on [data-pv]:not(.is-in) .bar-grow{transform:scaleY(0);transform-origin:50% 0}
 .m-on [data-pv].is-in .bar-grow{transform:none;transition:transform 520ms var(--m-out) 160ms}
@@ -107,6 +111,23 @@
 .m-on .sd .sd-ring .fg{stroke-dashoffset:150.8}
 .m-on .sd.is-in .sd-ring .fg{stroke-dashoffset:calc(150.8 * (1 - var(--p)));transition:stroke-dashoffset 1300ms var(--m-out);transition-delay:calc(var(--n,0) * 110ms + 250ms)}
 
+/* Highlight variants for the quote card: Mark (default, above), Underline, Flash */
+@keyframes mFlash{0%{background-color:rgba(255,180,21,0)}22%{background-color:rgba(255,180,21,.92)}100%{background-color:var(--m-mark)}}
+.qd[data-hl="underline"] .mk{background:linear-gradient(var(--bcm-yellow),var(--bcm-yellow)) no-repeat 0 100%/100% .14em;border-radius:0}
+.m-on .qd[data-hl="underline"] .mk{background-size:0% .14em}
+.m-on .qd[data-hl="underline"].is-in .mk{background-size:100% .14em;transition:background-size 800ms var(--m-out);transition-delay:var(--md,1500ms)}
+.mk-flash,.qd[data-hl="flash"] .mk{background:none;background-color:var(--m-mark)}
+.m-on .mk-flash,.m-on .qd[data-hl="flash"] .mk{background-color:rgba(255,180,21,0)}
+.m-on .is-in .mk-flash,.m-on .mk-flash.is-in,.m-on .qd[data-hl="flash"].is-in .mk{animation:mFlash 1000ms var(--m-inout) var(--md,1500ms) both;transition:none}
+.mk-flash{border-radius:4px;padding:0 .12em;margin:0 -.12em;align-self:flex-start}
+
+/* Highlight style switch (sliding thumb) */
+.bcm-live__tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.m-seg{position:relative;display:inline-flex;background:#fff;border-radius:var(--bcm-r-pill);padding:3px}
+.m-seg button{position:relative;z-index:1;border:0;background:none;font:inherit;font-size:13px;font-weight:600;color:var(--bcm-ink-soft);padding:4px 12px;border-radius:var(--bcm-r-pill);cursor:pointer;transition:color var(--m-micro)}
+.m-seg button[aria-pressed="true"]{color:var(--bcm-ink)}
+.m-seg__t{position:absolute;top:3px;bottom:3px;left:0;width:0;border-radius:var(--bcm-r-pill);background:var(--m-mark);transition:transform 320ms var(--m-out),width 320ms var(--m-out)}
+
 /* ---- Buttons and links ---- */
 .bcm-card__cta .cta-t{background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0 1px;padding-bottom:1px;transition:background-size var(--m-button) var(--m-out)}
 .bcm-card:hover .cta-t,.bcm-card:focus-visible .cta-t{background-size:100% 1px}
@@ -127,6 +148,9 @@
 
 /* ---- Side nav: sliding marker and reading progress ---- */
 .bcm-toc{position:relative}
+/* Ticks and labels: tick length and label offset fall off with distance from the section being read */
+.bcm-toc a{transform:translateX(calc(max(0, 3 - var(--dist,3)) * 1.5px));transition:color .2s,transform 320ms var(--m-out)}
+.bcm-toc a::before{width:calc(18px - min(var(--dist,3),3) * 3px);opacity:calc(.9 - min(var(--dist,3),3) * .13)}
 .bcm-toc__marker{position:absolute;left:0;top:0;width:18px;height:2px;background:var(--bcm-yellow);border-radius:1px;transition:transform 420ms var(--m-out);pointer-events:none}
 .bcm-progress{height:2px;margin-top:22px;background:var(--bcm-line);border-radius:1px;overflow:hidden}
 .bcm-progress i{display:block;height:100%;background:var(--bcm-ink);transform-origin:0 50%;transform:scaleX(0)}

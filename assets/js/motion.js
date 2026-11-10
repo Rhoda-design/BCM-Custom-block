@@ -96,13 +96,30 @@
     /* Play a scene again from the start */
     replay: function (el) {
       if (!can) return;
-      var all = [el].concat([].slice.call(el.querySelectorAll(".is-in,.is-read")));
+      var all = [].slice.call(el.querySelectorAll(".is-in,.is-read"));
+      if (el.classList.contains("is-in") || el.classList.contains("is-read")) all.unshift(el);
       all.forEach(function (n) { n.classList.remove("is-in", "is-read"); });
       [].forEach.call(el.querySelectorAll("[data-count]"), function (c) { c.textContent = fmt(0, +c.dataset.decimals || 0, c); });
       void el.offsetWidth;
-      setTimeout(function () { reveal(el); }, 80);
+      setTimeout(function () { all.forEach(reveal); }, 80);
     },
     reduced: reduce
   };
   window.BCM_MOTION = M;
+
+  /* Tilt: on pointer devices a card's mock-up leans toward the pointer, then settles back */
+  if (can && window.matchMedia("(hover:hover)").matches) {
+    var cur = null;
+    function rest(p) { if (p) { p.style.removeProperty("--rx"); p.style.removeProperty("--ry"); p.style.removeProperty("--sc"); } }
+    document.addEventListener("pointermove", function (e) {
+      var p = e.target.closest && e.target.closest(".bcm-card__preview");
+      if (p !== cur) { rest(cur); cur = p; }
+      if (!p) return;
+      var r = p.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      p.style.setProperty("--ry", (x * 7).toFixed(2) + "deg");
+      p.style.setProperty("--rx", (-y * 6).toFixed(2) + "deg");
+      p.style.setProperty("--sc", "1.015");
+    }, { passive: true });
+    document.addEventListener("pointerleave", function () { rest(cur); cur = null; });
+  }
 })();

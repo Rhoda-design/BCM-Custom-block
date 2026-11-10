@@ -48,3 +48,13 @@ Scroll triggers use one `IntersectionObserver` (`assets/js/motion.js`). Elements
 
 ## Not done, on purpose
 Glass tabs, filters and the sliding puzzle from the reference: this site has no tabs or filters, and no component to carry them. The pills were removed at the team lead's request.
+
+## Reference patterns (component-gallery)
+| Reference pattern | Where it is used here |
+|---|---|
+| Highlight: Mark / Underline / Flash | Case Study Quote demo has a three-way switch (Mark is the default); Stats Grid demo flashes the key figure |
+| Mockup motion: Rise, Pan, Tilt, Reveal | Rise on text previews, Pan on Image Rail and Horizontal Scroll, Tilt follows the pointer on card previews, Reveal wipes the Full Width Hero in |
+| Blur-up: Blur, Colour, Fade | Blur on category and hero, Colour (grey to colour) on Scroll Swap, Fade on Compendium Downloads cover |
+| Focus dim | Hovering a section on a detail page dims the rest to 55% |
+| Copy button: Swap and Grow | Code copy button |
+| Article index: Ticks and Labels | Side nav tick length and label offset fall off with distance from the section being read |

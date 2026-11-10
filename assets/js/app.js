@@ -109,6 +109,18 @@
     prepMotion();
     var btn = main.querySelector("[data-copy]");
     btn.addEventListener("click", function () { copyCode(btn, fullCode(b)); });
+    var seg = main.querySelector(".m-seg");
+    if (seg) {
+      var thumb = seg.querySelector(".m-seg__t"), scene = main.querySelector("[data-scene]"), qd = main.querySelector(".qd");
+      var place = function () { var on = seg.querySelector('[aria-pressed="true"]'); thumb.style.width = on.offsetWidth + "px"; thumb.style.transform = "translateX(" + on.offsetLeft + "px)"; };
+      place(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(place); window.addEventListener("resize", place);
+      seg.addEventListener("click", function (e) {
+        var bt = e.target.closest("button"); if (!bt) return;
+        [].forEach.call(seg.querySelectorAll("button"), function (x) { x.setAttribute("aria-pressed", x === bt ? "true" : "false"); });
+        qd.setAttribute("data-hl", bt.dataset.hl); place();
+        window.BCM_MOTION.replay(scene);
+      });
+    }
     var replay = main.querySelector("[data-replay]");
     if (replay) replay.addEventListener("click", function () { window.BCM_MOTION.replay(main.querySelector("[data-scene]")); });
     main.querySelector(".bcm-toc").addEventListener("click", function (e) {
@@ -133,20 +145,21 @@
   /* Live motion demos for the two blocks where motion carries meaning */
   var ICON_REPLAY = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.8-4.1M2.5 2.5v3h3"/></svg>';
   function liveDemo(b) {
-    var head = function (t) { return '<div class="bcm-live__head"><span>' + t + '</span><button type="button" class="m-replay" data-replay>' + ICON_REPLAY + 'Replay</button></div>'; };
+    var seg = '<div class="m-seg" role="group" aria-label="Highlight style"><i class="m-seg__t" aria-hidden="true"></i><button type="button" data-hl="mark" aria-pressed="true">Mark</button><button type="button" data-hl="underline" aria-pressed="false">Underline</button><button type="button" data-hl="flash" aria-pressed="false">Flash</button></div>';
+    var head = function (t, withSeg) { return '<div class="bcm-live__head"><span>' + t + '</span><div class="bcm-live__tools">' + (withSeg ? seg : "") + '<button type="button" class="m-replay" data-replay>' + ICON_REPLAY + 'Replay</button></div></div>'; };
     if (b.id === "case-study-quote") {
-      return '<div class="bcm-live" data-scene>' + head("Motion preview") +
-        '<div class="qd" data-in><span class="qd-bar"></span><blockquote>' +
+      return '<div class="bcm-live" data-scene>' + head("Motion preview", true) +
+        '<div class="qd" data-in data-hl="mark"><span class="qd-bar"></span><blockquote>' +
         '<span class="qd-open">The central opportunity is clear:</span> ' +
         '<span data-read style="--base:900ms">Naira Life Conference gives brands <mark class="mk" style="--md:2000ms">a credible platform to be recognized</mark>.</span>' +
         '</blockquote></div></div>';
     }
     if (b.id === "stats-grid") {
       var card = function (n, num, label, extra) { return '<div class="sd-card" style="--n:' + n + '">' + num + '<span class="sd-label">' + label + '</span>' + (extra || "") + '</div>'; };
-      var n = function (v, o) { o = o || {}; return '<span class="sd-num" aria-hidden="true" data-count="' + v + '"' + (o.d ? ' data-decimals="' + o.d + '"' : "") + (o.p ? ' data-prefix="' + o.p + '"' : "") + (o.s ? ' data-suffix="' + o.s + '"' : "") + '>' + o.t + '</span><span class="bcm-sr">' + o.t + '</span>'; };
+      var n = function (v, o) { o = o || {}; return '<span class="sd-num' + (o.mk ? ' mk mk-flash' : '') + '"' + (o.mk ? ' style="--md:1500ms"' : '') + ' aria-hidden="true" data-count="' + v + '"' + (o.d ? ' data-decimals="' + o.d + '"' : "") + (o.p ? ' data-prefix="' + o.p + '"' : "") + (o.s ? ' data-suffix="' + o.s + '"' : "") + '>' + o.t + '</span><span class="bcm-sr">' + o.t + '</span>'; };
       return '<div class="bcm-live" data-scene>' + head("Motion preview") +
         '<div class="sd" data-in>' +
-        card(0, n(1250, { t: "1,250" }), "Formatted number", "") +
+        card(0, n(1250, { t: "1,250", mk: true }), "Formatted number", "") +
         card(1, n(68, { s: "%", t: "68%" }), "Percentage", '<span class="sd-bar" style="--p:.68"><i></i></span>') +
         card(2, n(4.2, { p: "\u20a6", s: "m", d: 1, t: "\u20a64.2m" }), "Currency with decimal", "") +
         card(3, '<span class="sd-row"><svg class="sd-ring" viewBox="0 0 56 56" style="--p:.85" aria-hidden="true"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24"/></svg>' + n(85, { s: "%", t: "85%" }) + '</span>', "Circular progress", "") +
@@ -183,7 +196,10 @@
     main.querySelector(".bcm-side").appendChild(prog);
     main.querySelectorAll(".bcm-toc a").forEach(function (a) { links[a.dataset.sec] = a; });
     var first = true;
+    var order = Object.keys(links);
     var set = function (id) {
+      var ai = order.indexOf(id);
+      order.forEach(function (k, i) { links[k].style.setProperty("--dist", Math.abs(i - ai)); });
       Object.keys(links).forEach(function (k) { if (k === id) links[k].setAttribute("aria-current", "true"); else links[k].removeAttribute("aria-current"); });
       var a = links[id]; if (!a) return;
       if (first) { marker.style.transition = "none"; }
