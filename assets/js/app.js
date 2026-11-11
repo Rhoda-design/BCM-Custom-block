@@ -31,7 +31,7 @@
       '<div class="bcm-card__body"><h2 class="bcm-card__title">' + esc(b.name) + '</h2>' +
       '<p class="bcm-card__desc">' + esc(b.cardDesc) + '</p>' +
       (metaLine(b) ? '<span class="bcm-card__meta">' + metaLine(b) + '</span>' : '') + '</div>' +
-      '<span class="bcm-card__cta"><span class="cta-t">View demo</span> <span class="cta-a" aria-hidden="true">\u2192</span></span></a>';
+      '<span class="bcm-card__cta' + (i === 0 ? ' cta-demo' : '') + '"><span class="cta-t">View demo</span> <span class="cta-a" aria-hidden="true">\u2192</span>' + (i === 0 ? '<span class="m-cur m-cur--ui" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2.5l14.5 9.4-6.3 1.3 3.6 6.2-2.7 1.6-3.6-6.2L5 19.5z" fill="#fff" stroke="#1d1d1c" stroke-width="1.5" stroke-linejoin="round"/></svg><i></i></span>' : '') + '</span></a>';
   }
 
   function renderGallery() {
