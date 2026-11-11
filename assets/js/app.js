@@ -19,7 +19,6 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function catName(id) { return DATA.categories.filter(function (c) { return c.id === id; })[0].name; }
   function byId(id) { return DATA.blocks.filter(function (b) { return b.id === id; })[0]; }
-  function metaLine(b) { return b.usedOn && b.usedOn.length ? "Used on: " + esc(b.usedOn.join(", ")) : ""; }
 
   /* ---------- Gallery ---------- */
   var ICON_GRID = '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="5.5" height="5.5" rx="1.4"/><rect x="10.5" y="2" width="5.5" height="5.5" rx="1.4"/><rect x="2" y="10.5" width="5.5" height="5.5" rx="1.4"/><rect x="10.5" y="10.5" width="5.5" height="5.5" rx="1.4"/></svg>';
@@ -30,7 +29,7 @@
       '<div class="bcm-card__preview" data-pv>' + window.BCM_PREVIEW(b.demo) + '</div>' +
       '<div class="bcm-card__body"><h2 class="bcm-card__title">' + esc(b.name) + '</h2>' +
       '<p class="bcm-card__desc">' + esc(b.cardDesc) + '</p>' +
-      (metaLine(b) ? '<span class="bcm-card__meta">' + metaLine(b) + '</span>' : '') + '</div>' +
+      '</div>' +
       '<span class="bcm-card__cta' + (i === 0 ? ' cta-demo' : '') + '"><span class="cta-t">View demo</span> <span class="cta-a" aria-hidden="true">\u2192</span>' + (i === 0 ? '<span class="m-cur m-cur--ui" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2.5l14.5 9.4-6.3 1.3 3.6 6.2-2.7 1.6-3.6-6.2L5 19.5z" fill="#fff" stroke="#1d1d1c" stroke-width="1.5" stroke-linejoin="round"/></svg><i></i></span>' : '') + '</span></a>';
   }
 
