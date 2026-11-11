@@ -85,7 +85,7 @@
     if (!g || !can) return;
     if (g.__a) { g.__a.cancel(); g.__a = null; }
     clearTimeout(g.__t);
-    g.__t = setTimeout(function () {
+    function run() {
       var items = [].filter.call(g.children, function (c) { return !c.classList.contains("bcm-g"); });
       var W = g.clientWidth, H = g.clientHeight;
       if (items.length < 2 || !W || !H) return;
@@ -119,8 +119,37 @@
         kf.push(Object.assign({ offset: t / T, easing: "linear" }, rects[k]));
       });
       g.__a = hl.animate(kf, { duration: T });
-    }, 1500);
+      /* Continuous: rest for a moment, then go again while the card is on screen */
+      g.__a.onfinish = function () {
+        g.__a = null;
+        g.__t = setTimeout(function () {
+          if (pv.classList.contains("is-off") || document.hidden) { g.__idle = true; return; }
+          run();
+        }, 2000);
+      };
+    }
+    g.__run = run;
+    g.__t = setTimeout(run, 1500);
   }
+
+  /* Pause loops while a card is off screen, resume when it returns */
+  var vis = can ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      var el = en.target;
+      el.classList.toggle("is-off", !en.isIntersecting);
+      if (en.isIntersecting) {
+        var g = el.querySelector && el.querySelector("[data-hlg]");
+        if (g && g.__idle && g.__run) { g.__idle = false; g.__run(); }
+      }
+    });
+  }, { threshold: 0.05 }) : null;
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) return;
+    [].forEach.call(document.querySelectorAll("[data-pv]"), function (el) {
+      var g = el.querySelector("[data-hlg]");
+      if (g && g.__idle && g.__run && !el.classList.contains("is-off")) { g.__idle = false; g.__run(); }
+    });
+  });
 
   function reveal(el) {
     el.classList.add("is-in");
@@ -139,6 +168,7 @@
         if (el.hasAttribute("data-read")) split(el);
         [].forEach.call(el.querySelectorAll("[data-count]"), function (c) { c.textContent = fmt(0, +c.dataset.decimals || 0, c); });
         io.observe(el);
+        if (vis && (el.hasAttribute("data-pv") || el.classList.contains("bcm-card"))) vis.observe(el);
       });
     },
     /* Play a scene again from the start */

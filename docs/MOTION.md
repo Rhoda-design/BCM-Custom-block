@@ -61,3 +61,6 @@ Glass tabs, filters and the sliding puzzle from the reference: this site has no 
 
 ## Moving highlight (Filters-style)
 On Image Rail, Compendium Edition chips, Horizontal Scroll and Stats Grid previews, the one full-yellow frame glides to each sibling frame in turn, resizing to fit, then returns to the first. It runs once when the card enters view and again on hover or replay. Implemented in `hlPlay()` in `assets/js/motion.js` with ghost tint frames, so the yellow frame is the only full-yellow element at any moment. Off with reduced motion (the first frame stays yellow).
+
+## Continuous loops
+The moving highlight and every cursor demo now repeat while their card is on screen: roughly 4 seconds of motion, then a 2 second rest. Loops pause when the card scrolls out of view or the tab is hidden, and are off with reduced motion.

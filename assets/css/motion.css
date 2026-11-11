@@ -191,50 +191,26 @@
 .pv-btn--dark{display:inline-block}
 .pv-btn--link{display:inline-block;background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0 1px;padding-bottom:.4cqw}
 .pv-edition>span{position:relative;display:inline-block;align-self:flex-start}
-@keyframes curMove{
-  0%{opacity:0;transform:translate(15cqw,10cqw) scale(1)}
-  10%{opacity:1}
-  40%,56%{opacity:1;transform:translate(0,0) scale(1)}
-  60%{opacity:1;transform:translate(0,0) scale(.86)}
-  66%,84%{opacity:1;transform:translate(0,0) scale(1)}
-  100%{opacity:0;transform:translate(13cqw,9cqw) scale(1)}}
-@keyframes curRing{0%,58%{opacity:0;transform:scale(.3)}60%{opacity:.9;transform:scale(.3)}78%,100%{opacity:0;transform:scale(1.5)}}
-@keyframes pvBtnDark{
-  0%,38%{background-color:#1d1d1c;transform:none}
-  44%,58%{background-color:#3d3d3b;transform:translateY(-.5cqw)}
-  61%{background-color:#3d3d3b;transform:translateY(0) scale(.95)}
-  68%,82%{background-color:#3d3d3b;transform:translateY(-.5cqw)}
-  94%,100%{background-color:#1d1d1c;transform:none}}
-@keyframes pvBtnLink{
-  0%,38%{background-size:0 1px;transform:none}
-  46%,82%{background-size:100% 1px;transform:translateX(.6cqw)}
-  61%{background-size:100% 1px;transform:translateX(.6cqw) scale(.96)}
-  94%,100%{background-size:0 1px;transform:none}}
-.m-on [data-pv].is-in .m-cur{animation:curMove 3600ms var(--m-inout) 1500ms}
-.m-on [data-pv].is-in .m-cur i{animation:curRing 3600ms var(--m-out) 1500ms}
-.m-on [data-pv].is-in .pv-btn--dark{animation:pvBtnDark 3600ms var(--m-inout) 1500ms}
-.m-on [data-pv].is-in .pv-btn--link{animation:pvBtnLink 3600ms var(--m-inout) 1500ms}
+@keyframes curMove{0%{opacity:0;transform:translate(15cqw,10cqw) scale(1)}6.43%{opacity:1}25.71%,36%{opacity:1;transform:translate(0,0) scale(1)}38.57%{opacity:1;transform:translate(0,0) scale(.86)}42.43%,54%{opacity:1;transform:translate(0,0) scale(1)}64.29%{opacity:0;transform:translate(13cqw,9cqw) scale(1)}100%{opacity:0;transform:translate(13cqw,9cqw) scale(1)}}
+@keyframes curRing{0%,37.29%{opacity:0;transform:scale(.3)}38.57%{opacity:.9;transform:scale(.3)}50.14%,64.29%{opacity:0;transform:scale(1.5)}100%{opacity:0;transform:scale(1.5)}}
+@keyframes pvBtnDark{0%,24.43%{background-color:#1d1d1c;transform:none}28.29%,37.29%{background-color:#3d3d3b;transform:translateY(-.5cqw)}39.21%{background-color:#3d3d3b;transform:translateY(0) scale(.95)}43.71%,52.71%{background-color:#3d3d3b;transform:translateY(-.5cqw)}60.43%,64.29%{background-color:#1d1d1c;transform:none}100%{background-color:#1d1d1c;transform:none}}
+@keyframes pvBtnLink{0%,24.43%{background-size:0 1px;transform:none}29.57%,52.71%{background-size:100% 1px;transform:translateX(.6cqw)}39.21%{background-size:100% 1px;transform:translateX(.6cqw) scale(.96)}60.43%,64.29%{background-size:0 1px;transform:none}100%{background-size:0 1px;transform:none}}
+.m-on [data-pv].is-in .m-cur{animation:curMove 5600ms var(--m-inout) 1500ms infinite}
+.m-on [data-pv].is-in .m-cur i{animation:curRing 5600ms var(--m-out) 1500ms infinite}
+.m-on [data-pv].is-in .pv-btn--dark{animation:pvBtnDark 5600ms var(--m-inout) 1500ms infinite}
+.m-on [data-pv].is-in .pv-btn--link{animation:pvBtnLink 5600ms var(--m-inout) 1500ms infinite}
 
 /* The real "View demo" link on the first card: same demo, in pixels */
 .cta-demo{position:relative}
 .m-cur--ui{width:18px;left:55%;top:60%}
 .m-cur--ui i{left:-9px;top:-9px;width:18px;height:18px}
-@keyframes curUi{
-  0%{opacity:0;transform:translate(54px,34px) scale(1)}
-  10%{opacity:1}
-  40%,56%{opacity:1;transform:translate(0,0) scale(1)}
-  60%{opacity:1;transform:translate(0,0) scale(.86)}
-  66%,84%{opacity:1;transform:translate(0,0) scale(1)}
-  100%{opacity:0;transform:translate(48px,30px) scale(1)}}
-@keyframes ctaUi{
-  0%,38%{background-size:0 1px}
-  46%,82%{background-size:100% 1px}
-  94%,100%{background-size:0 1px}}
-@keyframes ctaArrow{0%,38%{transform:none}46%,82%{transform:translateX(4px)}61%{transform:translateX(4px) scale(.9)}94%,100%{transform:none}}
-.m-on .bcm-card.is-in .cta-demo .m-cur{animation:curUi 3600ms var(--m-inout) 2200ms}
-.m-on .bcm-card.is-in .cta-demo .m-cur i{animation:curRing 3600ms var(--m-out) 2200ms}
-.m-on .bcm-card.is-in .cta-demo .cta-t{animation:ctaUi 3600ms var(--m-inout) 2200ms}
-.m-on .bcm-card.is-in .cta-demo .cta-a{animation:ctaArrow 3600ms var(--m-inout) 2200ms}
+@keyframes curUi{0%{opacity:0;transform:translate(54px,34px) scale(1)}6.43%{opacity:1}25.71%,36%{opacity:1;transform:translate(0,0) scale(1)}38.57%{opacity:1;transform:translate(0,0) scale(.86)}42.43%,54%{opacity:1;transform:translate(0,0) scale(1)}64.29%{opacity:0;transform:translate(48px,30px) scale(1)}100%{opacity:0;transform:translate(48px,30px) scale(1)}}
+@keyframes ctaUi{0%,24.43%{background-size:0 1px}29.57%,52.71%{background-size:100% 1px}60.43%,64.29%{background-size:0 1px}100%{background-size:0 1px}}
+@keyframes ctaArrow{0%,24.43%{transform:none}29.57%,52.71%{transform:translateX(4px)}39.21%{transform:translateX(4px) scale(.9)}60.43%,64.29%{transform:none}100%{transform:none}}
+.m-on .bcm-card.is-in .cta-demo .m-cur{animation:curUi 5600ms var(--m-inout) 2200ms infinite}
+.m-on .bcm-card.is-in .cta-demo .m-cur i{animation:curRing 5600ms var(--m-out) 2200ms infinite}
+.m-on .bcm-card.is-in .cta-demo .cta-t{animation:ctaUi 5600ms var(--m-inout) 2200ms infinite}
+.m-on .bcm-card.is-in .cta-demo .cta-a{animation:ctaArrow 5600ms var(--m-inout) 2200ms infinite}
 
 /* ---- Real button feedback: colour, lift, press, pointer ---- */
 .bcm-toggle button,.m-seg button,.m-replay,.bcm-code__bar button,.m-note button,.bcm-card,.bcm-back,.bcm-toc a{cursor:pointer}
@@ -265,3 +241,6 @@
 .bcm-g{position:absolute;display:block;z-index:0;pointer-events:none}
 .bcm-g.bcm-hl{z-index:1}
 .hl-ready>:not(.bcm-g){position:relative;z-index:2;background:transparent!important}
+
+/* Loops pause while their card is off screen */
+.is-off .m-cur,.is-off .m-cur i,.is-off .pv-btn,.is-off .cta-t,.is-off .cta-a{animation-play-state:paused!important}
