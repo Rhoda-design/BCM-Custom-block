@@ -78,8 +78,53 @@
       reveal(el);
     });
   }
+  /* Moving highlight (Filters-style): the one full-yellow frame glides between sibling frames, resizing to fit each.
+     Ghost frames carry the tints; the yellow frame travels above them; the real frames keep only their content. */
+  function hlPlay(pv) {
+    var g = pv.querySelector("[data-hlg]");
+    if (!g || !can) return;
+    if (g.__a) { g.__a.cancel(); g.__a = null; }
+    clearTimeout(g.__t);
+    g.__t = setTimeout(function () {
+      var items = [].filter.call(g.children, function (c) { return !c.classList.contains("bcm-g"); });
+      var W = g.clientWidth, H = g.clientHeight;
+      if (items.length < 2 || !W || !H) return;
+      var rects = items.map(function (el) { return { left: el.offsetLeft / W * 100 + "%", top: el.offsetTop / H * 100 + "%", width: el.offsetWidth / W * 100 + "%", height: el.offsetHeight / H * 100 + "%" }; });
+      if (!g.__hl) {
+        g.__ghosts = items.map(function (it) {
+          var s = document.createElement("span");
+          s.className = "bcm-g " + it.className.replace(/\bf1\b/, "f3"); s.style.cssText = it.style.cssText; s.setAttribute("aria-hidden", "true");
+          g.insertBefore(s, g.firstChild); return s;
+        });
+        g.__hl = document.createElement("span");
+        g.__hl.className = "bcm-g bcm-hl " + items[0].className; g.__hl.style.cssText = items[0].style.cssText; g.__hl.setAttribute("aria-hidden", "true");
+        g.insertBefore(g.__hl, g.firstChild);
+        g.classList.add("hl-ready");
+      }
+      items.forEach(function (it, i) {
+        var s = g.__ghosts[i], r = rects[i], br = getComputedStyle(it).borderRadius;
+        ["left", "top", "width", "height"].forEach(function (k) { s.style[k] = r[k]; });
+        s.style.borderRadius = br;
+      });
+      var hl = g.__hl, r0 = rects[0];
+      ["left", "top", "width", "height"].forEach(function (k) { hl.style[k] = r0[k]; });
+      hl.style.borderRadius = getComputedStyle(items[0]).borderRadius;
+      if (!hl.animate) return;
+      var HOLD = 450, MOVE = 700, order = []; for (var i = 1; i < items.length; i++) order.push(i); order.push(0);
+      var T = order.length * (HOLD + MOVE), t = 0, kf = [Object.assign({ offset: 0, easing: "linear" }, r0)];
+      order.forEach(function (k) {
+        var prev = kf[kf.length - 1];
+        kf.push(Object.assign({ offset: (t + HOLD) / T, easing: "cubic-bezier(.65,0,.35,1)" }, { left: prev.left, top: prev.top, width: prev.width, height: prev.height }));
+        t += HOLD + MOVE;
+        kf.push(Object.assign({ offset: t / T, easing: "linear" }, rects[k]));
+      });
+      g.__a = hl.animate(kf, { duration: T });
+    }, 1500);
+  }
+
   function reveal(el) {
     el.classList.add("is-in");
+    if (el.hasAttribute("data-pv")) hlPlay(el);
     if (el.hasAttribute("data-read")) el.classList.add("is-read");
     [].forEach.call(el.querySelectorAll("[data-count]"), count);
     if (el.hasAttribute("data-count")) count(el);

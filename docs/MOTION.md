@@ -58,3 +58,6 @@ Glass tabs, filters and the sliding puzzle from the reference: this site has no 
 | Focus dim | Hovering a section on a detail page dims the rest to 55% |
 | Copy button: Swap and Grow | Code copy button |
 | Article index: Ticks and Labels | Side nav tick length and label offset fall off with distance from the section being read |
+
+## Moving highlight (Filters-style)
+On Image Rail, Compendium Edition chips, Horizontal Scroll and Stats Grid previews, the one full-yellow frame glides to each sibling frame in turn, resizing to fit, then returns to the first. It runs once when the card enters view and again on hover or replay. Implemented in `hlPlay()` in `assets/js/motion.js` with ghost tint frames, so the yellow frame is the only full-yellow element at any moment. Off with reduced motion (the first frame stays yellow).

@@ -258,3 +258,10 @@
   .bcm-card:active .bcm-card__preview{transform:translateY(-1px) scale(.995)}
 }
 @media (prefers-reduced-motion:reduce){:root:not(.m-force) .m-cur{display:none}}
+
+/* ---- Moving highlight: one yellow frame glides between sibling frames (Filters-style) ---- */
+.pv-track[data-hlg],.pv-chips[data-hlg]{position:relative}
+[data-hlg]{isolation:isolate}
+.bcm-g{position:absolute;display:block;z-index:0;pointer-events:none}
+.bcm-g.bcm-hl{z-index:1}
+.hl-ready>:not(.bcm-g){position:relative;z-index:2;background:transparent!important}
