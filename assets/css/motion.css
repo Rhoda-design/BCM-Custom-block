@@ -244,3 +244,24 @@
 
 /* Loops pause while their card is off screen */
 .is-off .m-cur,.is-off .m-cur i,.is-off .pv-btn,.is-off .cta-t,.is-off .cta-a{animation-play-state:paused!important}
+
+/* ---- Scroll Swap preview loop (9s: three steps, each a 2.2s hold then a 0.8s push-up swap) ---- */
+@keyframes swA{0%{transform:translateY(0)}24.44%{transform:translateY(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}33.33%{transform:translateY(-100%)}33.339999999999996%{transform:translateY(100%)}91.11%{transform:translateY(100%);animation-timing-function:cubic-bezier(.65,0,.35,1)}100%{transform:translateY(0)}}
+@keyframes swB{0%{transform:translateY(100%)}24.44%{transform:translateY(100%);animation-timing-function:cubic-bezier(.65,0,.35,1)}33.33%{transform:translateY(0)}57.78%{transform:translateY(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}66.67%{transform:translateY(-100%)}66.68%{transform:translateY(100%)}100%{transform:translateY(100%)}}
+@keyframes swC{0%{transform:translateY(100%)}57.78%{transform:translateY(100%);animation-timing-function:cubic-bezier(.65,0,.35,1)}66.67%{transform:translateY(0)}91.11%{transform:translateY(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}100%{transform:translateY(-100%)}}
+@keyframes swN1{0%{opacity:0;transform:translateY(1.2cqw)}0%{opacity:0;transform:translateY(1.2cqw)}3%{opacity:1;transform:none}21%{opacity:1;transform:none}23%{opacity:0;transform:none}100%{opacity:0;transform:none}}
+@keyframes swN2{0%{opacity:0;transform:translateY(1.2cqw)}33.83%{opacity:0;transform:translateY(1.2cqw)}36.83%{opacity:1;transform:none}54%{opacity:1;transform:none}56%{opacity:0;transform:none}100%{opacity:0;transform:none}}
+@keyframes swN3{0%{opacity:0;transform:translateY(1.2cqw)}67.17%{opacity:0;transform:translateY(1.2cqw)}70.17%{opacity:1;transform:none}88%{opacity:1;transform:none}90%{opacity:0;transform:none}100%{opacity:0;transform:none}}
+@keyframes swD1{0%{opacity:1}30%{opacity:1}33.33%{opacity:.25}95%{opacity:.25}100%{opacity:1}}
+@keyframes swD2{0%{opacity:.25}30%{opacity:.25}33.33%{opacity:1}63%{opacity:1}66.67%{opacity:.25}100%{opacity:.25}}
+@keyframes swD3{0%{opacity:.25}63%{opacity:.25}66.67%{opacity:1}93%{opacity:1}100%{opacity:.25}}
+.m-on [data-pv].is-in .sw-img.s1{animation:swA 9000ms linear 1500ms infinite}
+.m-on [data-pv].is-in .sw-img.s2{animation:swB 9000ms linear 1500ms infinite}
+.m-on [data-pv].is-in .sw-img.s3{animation:swC 9000ms linear 1500ms infinite}
+.m-on [data-pv].is-in .sw-note.n1{animation:swN1 9000ms var(--m-out) 1500ms infinite}
+.m-on [data-pv].is-in .sw-note.n2{animation:swN2 9000ms var(--m-out) 1500ms infinite}
+.m-on [data-pv].is-in .sw-note.n3{animation:swN3 9000ms var(--m-out) 1500ms infinite}
+.m-on [data-pv].is-in .sw-dots .d1{animation:swD1 9000ms linear 1500ms infinite}
+.m-on [data-pv].is-in .sw-dots .d2{animation:swD2 9000ms linear 1500ms infinite}
+.m-on [data-pv].is-in .sw-dots .d3{animation:swD3 9000ms linear 1500ms infinite}
+.is-off .sw-img,.is-off .sw-note,.is-off .sw-dots i{animation-play-state:paused!important}

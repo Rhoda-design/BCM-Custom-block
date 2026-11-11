@@ -77,3 +77,21 @@
 @keyframes pvBreath{to{transform:scale(1.03)}}
 
 @media (prefers-reduced-motion:reduce){:root:not(.m-force) .pv *,:root:not(.m-force) .pv{animation:none!important}}
+
+/* Scroll Swap preview: the frame stays put; the current image moves up and out while the next slides up into place.
+   Text notes (title and two lines) appear over each image as it arrives, positioned left, right or centre. */
+.pv-swap-prev .sw-frame{position:relative;flex:1;height:100%;border-radius:1.2cqw;overflow:hidden;background:#fff8ea}
+.sw-img{position:absolute;inset:0;display:flex;padding:3.5cqw;will-change:transform}
+.sw-img.s1{background:#ffb415}.sw-img.s2{background:#ffce66;transform:translateY(100%)}.sw-img.s3{background:#ffdd95;transform:translateY(100%)}
+.sw-note{align-self:flex-end;display:flex;flex-direction:column;gap:1cqw;width:46%;opacity:0}
+.sw-note.n1{opacity:1}
+.sw-note.l{margin-right:auto}.sw-note.r{margin-left:auto;align-items:flex-end}.sw-note.c{margin:0 auto;align-items:center}
+.sw-note b{display:block;width:70%;height:1.8cqw;border-radius:.4cqw;background:#1d1d1c}
+.sw-note u{display:block;height:1cqw;border-radius:.3cqw;background:rgba(29,29,28,.55)}
+.sw-note u:nth-of-type(1){width:100%}.sw-note u:nth-of-type(2){width:72%}
+.sw-rail{flex:0 0 5cqw;height:70%;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.sw-rail .pv-up{flex:none;width:5cqw;height:60%;overflow:visible}
+.sw-rail .pv-up path{animation:none}
+.sw-dots{display:flex;flex-direction:column;gap:1.4cqw}
+.sw-dots i{display:block;width:1.6cqw;height:1.6cqw;border-radius:50%;background:#1d1d1c;opacity:.25}
+.sw-dots .d1{opacity:1}

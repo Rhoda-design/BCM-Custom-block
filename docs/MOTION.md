@@ -64,3 +64,6 @@ On Image Rail, Compendium Edition chips, Horizontal Scroll and Stats Grid previe
 
 ## Continuous loops
 The moving highlight and every cursor demo now repeat while their card is on screen: roughly 4 seconds of motion, then a 2 second rest. Loops pause when the card scrolls out of view or the tab is hidden, and are off with reduced motion.
+
+## Scroll Swap preview
+Follows the block's own description: the frame stays in place, the current image moves up and out while the next slides up to replace it (a push, not a crossfade, since the block replaces images rather than blending them). Text notes (title and two lines) appear over each image as it arrives, placed left, right and centre like the block's position setting. Three dots on the side show the current step. Loops every 9 seconds while on screen.
